@@ -1,0 +1,319 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>About Us</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: full-bleed editorial sections stacked on a warm neutral ground; dark hero, quality and CTA bands frame a light story/values/community core. Same identity as the Shop, Product and Cart pages. */
+:root{
+  --display:'Archivo','Arial Black',Impact,sans-serif;
+  --text:'Manrope','Helvetica Neue',Arial,sans-serif;
+  --bg:#F4F2EE; --fg:#111111; --muted:#6B6761; --body:#4F4B44; --line:#E4E0D9;
+  --card:#FFFFFF; --bone:#E6E1D6; --phil:#CFCBC4; --ph-story:#CFCBC4; --ph-fg:#4A4640;
+  --band:#111111; --band-line:#4A463F; --hero:#2A2824; --olive:#5E624F;
+  --on-band:#F4F2EE; --on-band-muted:#C9C4BA; --btn-ink:#111111; --btn-ink-fg:#FFFFFF;
+  --shadow:0 1px 2px rgba(17,17,17,.04),0 8px 30px rgba(17,17,17,.06);
+  --shadow-lift:0 22px 44px rgba(17,17,17,.16);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#181715; --fg:#F4F2EE; --muted:#A8A398; --body:#C9C4BA; --line:#2E2B26;
+    --card:#22201D; --bone:#2E2B26; --phil:#2E2B26; --ph-story:#3A3732; --ph-fg:#C9C4BA;
+    --band:#0D0D0C; --band-line:#3A3732; --hero:#1F1D1A;
+    --btn-ink:#F4F2EE; --btn-ink-fg:#111111;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 30px rgba(0,0,0,.35);
+    --shadow-lift:0 22px 44px rgba(0,0,0,.55);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#181715; --fg:#F4F2EE; --muted:#A8A398; --body:#C9C4BA; --line:#2E2B26;
+  --card:#22201D; --bone:#2E2B26; --phil:#2E2B26; --ph-story:#3A3732; --ph-fg:#C9C4BA;
+  --band:#0D0D0C; --band-line:#3A3732; --hero:#1F1D1A;
+  --btn-ink:#F4F2EE; --btn-ink-fg:#111111;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 30px rgba(0,0,0,.35);
+  --shadow-lift:0 22px 44px rgba(0,0,0,.55);
+  color-scheme:dark;
+}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--text);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.display{font-family:var(--display);font-weight:900;text-transform:uppercase}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;min-height:84px}
+.nav-left{display:flex;align-items:center;gap:clamp(16px,3vw,40px);flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:900;font-size:22px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+.nav nav{display:flex;gap:clamp(14px,2.5vw,28px);flex-wrap:wrap;font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.nav a{text-decoration:none;transition:opacity .15s ease}
+.nav a:hover{opacity:.65}
+.nav .current{border-bottom:2px solid #fff;padding-bottom:2px}
+.bag{display:flex;align-items:center;gap:10px;min-height:44px;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+
+/* hero */
+.hero{position:relative;background:var(--hero);color:#fff;min-height:clamp(640px,58vw,840px);display:flex;flex-direction:column;overflow:hidden}
+.hero-note{position:absolute;top:100px;right:clamp(16px,4vw,48px);max-width:calc(100% - 32px);padding:8px 14px;border:1px solid rgba(255,255,255,.25);border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#B9B4A9}
+.hero-body{flex:1;width:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(20px,3vw,32px);padding-block:clamp(72px,9vw,110px) clamp(32px,4vw,48px)}
+.hero h1{max-width:1000px;font-size:clamp(46px,9.5vw,148px);line-height:.92;letter-spacing:-.03em}
+.hero p{max-width:560px;font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:#E4E0D9}
+.cue{display:inline-flex;align-items:center;gap:14px;align-self:flex-start;min-height:56px;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;transition:gap .2s ease}
+.cue:hover{gap:20px}
+.cue-line{display:block;width:1px;height:48px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
+.cue-line::after{content:"";position:absolute;left:0;top:-16px;width:1px;height:16px;background:#fff;animation:drip 1.8s ease-in-out infinite}
+@keyframes drip{from{top:-16px}to{top:48px}}
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.r2{animation-delay:.15s}.r3{animation-delay:.3s}
+@keyframes rise{from{opacity:.25;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* placeholders */
+.ph{display:flex;align-items:flex-end;padding:20px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.tile{overflow:hidden;border-radius:16px}
+.zoom{transition:transform .6s ease}
+.tile:hover .zoom{transform:scale(1.04)}
+
+/* story */
+.story{display:flex;flex-wrap:wrap;gap:clamp(32px,6vw,96px);align-items:center;padding-block:clamp(64px,10vw,140px)}
+.story>*{flex:1 1 420px;min-width:0}
+.story .tile{border-radius:20px}
+.story .ph{aspect-ratio:4/5;background:var(--ph-story);color:var(--ph-fg)}
+.story h2{font-size:clamp(40px,6vw,76px);line-height:.95;letter-spacing:-.025em;margin:20px 0 32px}
+.lede{font-family:var(--display);font-weight:800;font-size:clamp(20px,2.2vw,26px);line-height:1.3;letter-spacing:-.01em;margin-bottom:20px}
+.copy{font-size:17px;line-height:1.7;color:var(--body);margin-bottom:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:800;text-transform:uppercase;border-radius:14px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease,border-color .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-line{min-height:52px;padding:0 28px;border:1px solid var(--fg);background:transparent;color:var(--fg);font-size:13px;letter-spacing:.12em;margin-top:12px}
+.btn-line:hover{background:var(--fg);color:var(--bg)}
+
+/* values */
+.values{padding-bottom:clamp(64px,10vw,140px)}
+.section-head{max-width:720px;margin-bottom:clamp(28px,4vw,56px)}
+.section-head h2{font-size:clamp(36px,5.5vw,68px);line-height:.95;letter-spacing:-.025em;margin-top:20px}
+.grid-values{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:clamp(12px,2vw,24px)}
+.vcard{border-radius:20px;padding:32px 28px 36px;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;gap:48px;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
+.vcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift)}
+.vcard h3{font-family:var(--display);font-weight:900;font-size:30px;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:12px}
+.vcard p{font-size:16px;line-height:1.6}
+.v1{background:var(--card);color:var(--fg)}.v1 p{color:var(--body)}
+.v2{background:#1B1B1B;color:#fff}.v2 p{color:#C9C4BA}
+.v3{background:var(--bone);color:var(--fg)}.v3 p{color:var(--body)}
+.v4{background:var(--olive);color:#fff}.v4 p{color:#EDEADF}
+
+/* quality */
+.quality{background:var(--band);color:var(--on-band)}
+.quality-inner{padding-block:clamp(64px,10vw,140px)}
+.quality-head{display:flex;flex-wrap:wrap;gap:24px clamp(32px,6vw,96px);align-items:flex-end;margin-bottom:clamp(32px,5vw,64px)}
+.quality-head>*{flex:1 1 360px;min-width:0}
+.quality h2{font-size:clamp(44px,7.5vw,104px);line-height:.92;letter-spacing:-.03em;margin-top:20px}
+.quality-head p.copy-lg{font-size:18px;line-height:1.7;color:var(--on-band-muted)}
+.eyebrow-dk{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#B5B0A7}
+.closeups{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:clamp(12px,2vw,24px);margin-bottom:clamp(40px,6vw,80px)}
+.closeups .ph{aspect-ratio:4/5;padding:18px}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:clamp(24px,3vw,40px)}
+.feat{border-top:1px solid var(--band-line);padding-top:24px;transition:border-color .2s ease}
+.feat:hover{border-color:var(--on-band)}
+.feat h3{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.15;text-transform:uppercase;margin-bottom:12px}
+.feat p{font-size:15px;line-height:1.65;color:var(--on-band-muted)}
+
+/* philosophy */
+.phil{position:relative;background:var(--phil);color:var(--fg);min-height:clamp(560px,52vw,760px);display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.phil-inner{display:flex;flex-direction:column;gap:clamp(20px,3vw,36px);padding-block:clamp(72px,10vw,120px)}
+.phil h2{font-size:clamp(52px,12vw,190px);line-height:.88;letter-spacing:-.035em}
+.phil .sub{max-width:520px;font-family:var(--display);font-weight:600;font-size:clamp(18px,2vw,24px);line-height:1.4}
+.phil-note{position:absolute;left:clamp(16px,4vw,48px);right:16px;bottom:24px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* community */
+.community{padding-block:clamp(64px,10vw,140px)}
+.community-head{display:flex;flex-wrap:wrap;gap:24px clamp(32px,6vw,96px);align-items:flex-end;margin-bottom:clamp(28px,4vw,56px)}
+.community-head>*{flex:1 1 360px;min-width:0}
+.community h2{font-size:clamp(40px,6.5vw,88px);line-height:.92;letter-spacing:-.03em;margin-top:20px}
+.community-head .copy-lg{font-size:18px;line-height:1.7;color:var(--body)}
+.collage{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(12px,2vw,24px);align-items:start}
+.moment{display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;padding:20px}
+.pill{align-self:flex-start;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.92);color:#111;font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.moment small{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+
+/* cta */
+.cta{background:var(--band);color:var(--on-band)}
+.cta-inner{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(20px,3vw,32px);padding-block:clamp(72px,11vw,150px)}
+.cta h2{max-width:1000px;font-size:clamp(42px,8vw,120px);line-height:.92;letter-spacing:-.03em}
+.cta p{max-width:520px;font-size:18px;line-height:1.6;color:var(--on-band-muted)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.btn-lg{min-height:60px;padding:0 36px;font-size:14px;letter-spacing:.12em}
+.btn-light{background:#F4F2EE;color:#111}
+.btn-light:hover{box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.btn-outline{border:1px solid #6B6761;color:#fff}
+.btn-outline:hover{background:#F4F2EE;color:#111;border-color:#F4F2EE}
+.foot{border-top:1px solid var(--band-line)}
+.foot-inner{padding-block:24px;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;font-size:13px;color:#B5B0A7}
+.foot-inner strong{font-family:var(--display);font-weight:900;letter-spacing:.04em;color:var(--on-band)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rise{animation:none}
+  .cue-line::after{animation:none}
+  .zoom,.vcard,.btn,.feat{transition:none}
+}
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-note">Photo: friends wearing the brand, street at dusk</div>
+  <header class="wrap" style="width:100%">
+    <div class="nav">
+      <div class="nav-left">
+        <a class="brand" href="#">[BRAND]</a>
+        <nav aria-label="Main">
+          <a href="#">Shop</a>
+          <a href="#">New In</a>
+          <a href="#" class="current" aria-current="page">About</a>
+        </nav>
+      </div>
+      <a class="bag" href="#">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span>Bag</span>
+      </a>
+    </div>
+  </header>
+  <div class="wrap hero-body">
+    <h1 class="display rise">More Than What You Wear.</h1>
+    <p class="rise r2">We create clothing designed for people who want to look good, feel comfortable and express who they are.</p>
+    <a class="cue rise r3" href="#story"><span class="cue-line"></span><span>Our Story</span></a>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section id="story" class="wrap">
+  <div class="story">
+    <div class="tile"><div class="zoom ph">Photo: the team in the studio, fabrics and sketches on the table</div></div>
+    <div>
+      <p class="eyebrow">Where it began</p>
+      <h2 class="display">Our Story</h2>
+      <p class="lede">We started with a simple idea: everyday clothing shouldn’t have to sacrifice comfort for style.</p>
+      <p class="copy">What began as a passion for creating pieces we would actually want to wear grew into a brand built around quality, confidence and individuality.</p>
+      <div id="story-more" hidden>
+        <p class="copy">Every design starts with the same question: would we reach for this on a regular Tuesday? Does it fit the way we want it to? Will it still feel right after the hundredth wear? If the answer is no, it doesn’t make it out of the studio.</p>
+        <p class="copy">We obsess over the details most people only notice when they feel them: the weight of a fabric, the drape of a sleeve, the way a seam sits against your skin.</p>
+        <p class="copy">We’re still the same people who care a little too much about a good hoodie. The difference is that now you’re part of it.</p>
+      </div>
+      <button type="button" id="more-btn" class="btn btn-line" aria-expanded="false" aria-controls="story-more">Read More +</button>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE STAND FOR -->
+<section class="wrap values">
+  <div class="section-head">
+    <p class="eyebrow">Our values</p>
+    <h2 class="display">What We Stand For</h2>
+  </div>
+  <div class="grid-values">
+    <article class="vcard v1">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+      <div><h3>Quality</h3><p>Premium materials and thoughtful construction designed to last.</p></div>
+    </article>
+    <article class="vcard v2">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4C10 4 5 9 5 16v4"/><path d="M20 4c0 8-4 12-11 12"/><path d="M5 20c2-5 5-8 9-10"/></svg>
+      <div><h3>Comfort</h3><p>Clothing made to feel as good as it looks.</p></div>
+    </article>
+    <article class="vcard v3">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.2 6.3L21 12l-6.8 2.7L12 21l-2.2-6.3L3 12l6.8-2.7L12 3z"/></svg>
+      <div><h3>Individuality</h3><p>Wear what represents you. Don’t dress to fit in.</p></div>
+    </article>
+    <article class="vcard v4">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16V8"/><path d="M8.5 11.5L12 8l3.5 3.5"/></svg>
+      <div><h3>Confidence</h3><p>Every piece is designed to help you feel comfortable in your own style.</p></div>
+    </article>
+  </div>
+</section>
+
+<!-- OUR QUALITY -->
+<section class="quality">
+  <div class="wrap quality-inner">
+    <div class="quality-head">
+      <div>
+        <p class="eyebrow-dk">Our quality</p>
+        <h2 class="display">Made With Purpose.</h2>
+      </div>
+      <p class="copy-lg">Great clothing is decided in the details you can feel before you ever see them. We choose fabrics for how they wear, stitching for how it lasts, and cuts for how they move with you.</p>
+    </div>
+    <div class="closeups">
+      <div class="tile"><div class="zoom ph" style="background:#2A2824;color:#C9C4BA">Close-up: cotton weave and fabric weight</div></div>
+      <div class="tile"><div class="zoom ph" style="background:#3A3732;color:#D4D0C8">Close-up: reinforced stitching and hem</div></div>
+      <div class="tile"><div class="zoom ph" style="background:#4A463F;color:#E4E0D9">Close-up: woven label and finishing</div></div>
+    </div>
+    <div class="features">
+      <div class="feat"><h3>100% Premium Cotton</h3><p>Soft against the skin, breathable through the day and made to hold its shape wash after wash.</p></div>
+      <div class="feat"><h3>Quality Fabric Blends</h3><p>Where a blend does the job better, we use it, for stretch, drape and recovery.</p></div>
+      <div class="feat"><h3>Comfortable Fits</h3><p>Relaxed, considered silhouettes designed around real bodies and real days.</p></div>
+      <div class="feat"><h3>Durable Construction</h3><p>Reinforced stitching and clean, finished seams so your favourites outlast the season.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="phil">
+  <div class="wrap phil-inner" style="width:100%">
+    <p class="eyebrow">Our philosophy</p>
+    <h2 class="display">Wear Your Story.</h2>
+    <p class="sub">Your style is personal. Our job is to give you pieces worth telling it in.</p>
+  </div>
+  <div class="phil-note">Photo: a single wide portrait, someone mid-stride in their favourite piece</div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="wrap community">
+  <div class="community-head">
+    <div>
+      <p class="eyebrow">Community</p>
+      <h2 class="display">Made For Your Everyday.</h2>
+    </div>
+    <p class="copy-lg">Our clothes are made for real life: going out, staying in, travelling, creating, working and simply being yourself. Wherever your day takes you, we want you to feel like you.</p>
+  </div>
+  <div class="collage">
+    <div class="tile"><div class="zoom ph moment" style="aspect-ratio:4/5;background:#1B1B1B;color:#C9C4BA"><span class="pill">Going out</span><small>Photo: night out, group on the steps</small></div></div>
+    <div class="tile"><div class="zoom ph moment" style="aspect-ratio:1/1;background:#E6E1D6;color:#4F4B44"><span class="pill">Staying in</span><small>Photo: relaxed at home, soft light</small></div></div>
+    <div class="tile"><div class="zoom ph moment" style="aspect-ratio:3/4;background:#5E624F;color:#EDEADF"><span class="pill">Travelling</span><small>Photo: airport or road trip</small></div></div>
+    <div class="tile"><div class="zoom ph moment" style="aspect-ratio:1/1;background:#CFCBC4;color:#4A4640"><span class="pill">Creating</span><small>Photo: in the studio, mid-process</small></div></div>
+    <div class="tile"><div class="zoom ph moment" style="aspect-ratio:4/5;background:#3A3732;color:#D4D0C8"><span class="pill">Working</span><small>Photo: laptop, coffee, everyday fit</small></div></div>
+    <div class="tile"><div class="zoom ph moment" style="aspect-ratio:3/4;background:#D9D4C9;color:#4A4640"><span class="pill">Being yourself</span><small>Photo: candid portrait, big smile</small></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap cta-inner">
+    <h2 class="display">Find Your Next Favourite Piece.</h2>
+    <p>Explore the collection and discover clothing made for your everyday.</p>
+    <div class="cta-row">
+      <a class="btn btn-lg btn-light" href="#">Shop the Collection →</a>
+      <a class="btn btn-lg btn-outline" href="#">Explore New Arrivals</a>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="wrap foot-inner">
+      <strong>[BRAND]</strong>
+      <span>© [YEAR] [BRAND]. All rights reserved.</span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var btn = document.getElementById('more-btn');
+  var more = document.getElementById('story-more');
+  if (!btn || !more) return;
+  btn.addEventListener('click', function () {
+    var opening = more.hidden;
+    more.hidden = !opening;
+    btn.setAttribute('aria-expanded', String(opening));
+    btn.textContent = opening ? 'Read Less −' : 'Read More +';
+  });
+})();
+</script>
+
+</body></html>

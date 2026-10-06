@@ -1,0 +1,679 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Essential Oversized Hoodie | [BRAND NAME]</title>
+<meta name="description" content="An everyday oversized hoodie designed for comfort, durability and effortless style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000;
+    --charcoal:#222221;
+    --cream:#ece9e2;
+    --paper:#f7f6f2;
+    --white:#fff;
+    --ash:#7d7c78;
+    --line:rgba(0,0,0,.14);
+    --accent:#2f3cff;
+    --display:'Archivo','Arial Narrow',Impact,sans-serif;
+    --body:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --r:10px;
+    --nav-h:68px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 1rem)}
+  body{margin:0;font-family:var(--body);font-size:1rem;line-height:1.55;color:var(--black);background:var(--paper);-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  button,input,textarea{font:inherit;color:inherit}
+  button{cursor:pointer}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  .h-lg,.h-md{font-family:var(--display);font-stretch:68%;font-weight:850;line-height:.92;letter-spacing:-.01em;margin:0;text-transform:uppercase}
+  .h-lg{font-size:clamp(2.6rem,6vw,5rem)}
+  .h-md{font-size:clamp(2rem,4vw,3.2rem)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.6rem;border-radius:var(--r);border:1.5px solid transparent;font-family:var(--display);font-stretch:85%;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-decoration:none;text-transform:uppercase;transition:background .25s,color .25s,border-color .25s,transform .2s,box-shadow .25s}
+  .btn:active{transform:scale(.98)}
+  .btn-light{background:var(--white);color:var(--black)}
+  .btn-dark{background:var(--black);color:var(--white)}
+  .btn-dark:hover{background:var(--accent);box-shadow:0 12px 28px -12px rgba(47,60,255,.7)}
+  .btn-line{border-color:var(--black);background:transparent}
+  .btn-line:hover{background:var(--black);color:var(--white)}
+  .btn-block{width:100%}
+  .btn-xl{padding:1.2rem 1.6rem;font-size:1.05rem}
+
+  /* Navigation */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;height:var(--nav-h);background:rgba(247,246,242,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+  .nav-in{height:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+  .logo{font-family:var(--display);font-stretch:70%;font-weight:900;font-size:1.7rem;letter-spacing:.02em;text-decoration:none;text-transform:uppercase;justify-self:start}
+  .links{display:flex;gap:2rem}
+  .links a{text-decoration:none;font-weight:500;font-size:.95rem;position:relative;padding:.25rem 0}
+  .links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s}
+  .links a:hover::after,.links a[aria-current="page"]::after{transform:scaleX(1)}
+  .icons{display:flex;justify-content:flex-end;gap:.35rem}
+  .ic{position:relative;display:grid;place-items:center;width:44px;height:44px;background:none;border:0;border-radius:50%;color:inherit;text-decoration:none}
+  .ic:hover{background:rgba(127,127,127,.18)}
+  .ic svg{width:22px;height:22px}
+  .count{position:absolute;top:3px;right:1px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:var(--accent);color:#fff;font-size:.7rem;font-weight:600;display:grid;place-items:center;transition:transform .3s}
+  .count.bump{transform:scale(1.35)}
+  .burger{display:none}
+
+  /* Page layout */
+  .top{padding-top:calc(var(--nav-h) + 1.25rem);padding-bottom:clamp(3rem,6vw,5rem)}
+  .crumbs{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.88rem;color:var(--ash);margin-bottom:1.5rem}
+  .crumbs a{text-decoration:none}
+  .crumbs a:hover{color:var(--black);text-decoration:underline;text-underline-offset:3px}
+  .crumbs span[aria-current]{color:var(--black)}
+  .pdp-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(2rem,5vw,5.5rem);align-items:start}
+
+  /* Gallery */
+  .gal{display:grid;grid-template-columns:84px minmax(0,1fr);gap:.9rem;position:sticky;top:calc(var(--nav-h) + 1rem)}
+  .thumbs{display:grid;gap:.65rem;align-content:start}
+  .thumb{position:relative;padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;aspect-ratio:4/5;background:var(--cream);transition:border-color .2s,opacity .2s;opacity:.8}
+  .thumb:hover{opacity:1}
+  .thumb img{width:100%;height:100%;object-fit:cover}
+  .thumb[aria-pressed="true"]{border-color:var(--black);opacity:1}
+  .stage{position:relative}
+  .zoom{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--cream);box-shadow:0 24px 60px -28px rgba(0,0,0,.35)}
+  .zoom img{width:100%;height:100%;object-fit:cover;transform-origin:var(--x,50%) var(--y,50%);transition:transform .35s cubic-bezier(.2,.7,.2,1),opacity .25s}
+  .zoom.fade img{opacity:0}
+  @media (hover:hover){
+    .zoom{cursor:zoom-in}
+    .zoom:hover img{transform:scale(1.9)}
+  }
+  .cap{position:absolute;left:.9rem;bottom:.9rem;z-index:2;background:rgba(255,255,255,.9);padding:.3rem .75rem;border-radius:999px;font-size:.8rem;font-weight:600;pointer-events:none}
+  .tag{position:absolute;top:.9rem;left:.9rem;z-index:2;background:var(--black);color:#fff;font-size:.75rem;font-weight:600;padding:.28rem .75rem;border-radius:999px}
+
+  /* Info */
+  .info{display:flex;flex-direction:column;gap:1.4rem}
+  .rate{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+  .rate a{text-decoration:none;color:#444}
+  .rate a:hover{text-decoration:underline;text-underline-offset:3px}
+  .stars{display:inline-flex;gap:2px}
+  .stars svg{width:17px;height:17px;fill:var(--black);stroke:var(--black);stroke-width:1.4}
+  .stars svg.off{fill:none;opacity:.35}
+  .price{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:clamp(2rem,3.4vw,2.8rem);line-height:1}
+  .lead{margin:0;font-size:1.1rem;max-width:46ch}
+  .lbl{display:flex;justify-content:space-between;align-items:baseline;font-weight:600;font-size:.92rem;margin:0 0 .65rem}
+  .lbl span{font-weight:400;color:#55544f}
+  .swatches{display:flex;gap:.8rem}
+  .sw{width:34px;height:34px;border-radius:50%;border:1px solid rgba(0,0,0,.28);padding:0;background:var(--c);transition:transform .2s}
+  .sw:hover{transform:scale(1.08)}
+  .sw[aria-pressed="true"]{outline:2px solid var(--black);outline-offset:3px}
+  .sizes{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem}
+  .size{padding:.8rem 0;border:1.5px solid var(--line);background:var(--white);border-radius:8px;font-weight:500;transition:border-color .2s,background .2s,color .2s,transform .15s}
+  .size:hover{border-color:var(--black)}
+  .size[aria-pressed="true"]{border-color:var(--black);background:var(--black);color:var(--white);font-weight:600;transform:translateY(-1px)}
+  .guide{margin-top:.7rem;background:none;border:0;padding:0;font-size:.9rem;text-decoration:underline;text-underline-offset:3px}
+  .guide:hover{color:var(--accent)}
+  .err{margin:.55rem 0 0;color:#c0262d;font-size:.9rem;min-height:1.3em}
+  .buy{display:grid;grid-template-columns:auto 1fr;gap:.75rem}
+  .qty{display:inline-flex;align-items:center;border:1.5px solid var(--black);border-radius:var(--r);background:var(--white)}
+  .qty button{width:46px;height:100%;min-height:44px;background:none;border:0;font-size:1.2rem;border-radius:var(--r)}
+  .qty button:hover{background:var(--cream)}
+  .qty output{min-width:2.4ch;text-align:center;font-weight:600}
+  .perks{list-style:none;margin:0;padding:1.4rem 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:.9rem 1.25rem}
+  .perks li{display:flex;align-items:center;gap:.7rem;font-size:.93rem;font-weight:500}
+  .perks svg{width:24px;height:24px;flex:none}
+
+  /* Accordion */
+  .acc{border-top:1px solid var(--line)}
+  .acc-item{border-bottom:1px solid var(--line)}
+  .acc-btn{width:100%;display:flex;justify-content:space-between;align-items:center;padding:1.15rem 0;background:none;border:0;text-align:left;font-weight:600;font-size:1.02rem}
+  .acc-btn svg{width:20px;height:20px;transition:transform .3s}
+  .acc-btn[aria-expanded="true"] svg{transform:rotate(45deg)}
+  .acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s cubic-bezier(.2,.7,.2,1)}
+  .acc-panel.open{grid-template-rows:1fr}
+  .acc-panel > div{overflow:hidden}
+  .acc-panel p,.acc-panel ul{margin:0 0 1rem;color:#3d3c39}
+  .acc-panel ul{padding-left:1.2rem}
+  .acc-panel li + li{margin-top:.35rem}
+  .acc-panel .gap{height:.15rem}
+
+  /* Reviews */
+  .reviews{background:var(--cream);padding:clamp(4rem,8vw,7rem) 0}
+  .rev-wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);gap:clamp(2rem,6vw,6rem);margin-top:clamp(2rem,4vw,3.5rem);align-items:start}
+  .sum{position:sticky;top:calc(var(--nav-h) + 1rem);display:grid;gap:1.25rem}
+  .score{display:flex;align-items:flex-end;gap:1rem}
+  .score b{font-family:var(--display);font-stretch:70%;font-weight:900;font-size:5.5rem;line-height:.8}
+  .score small{display:block;color:#55544f;margin-top:.4rem}
+  .bars{display:grid;gap:.5rem}
+  .bar{display:grid;grid-template-columns:2.4rem 1fr 2rem;align-items:center;gap:.75rem;font-size:.9rem}
+  .bar i{display:block;height:8px;border-radius:99px;background:rgba(0,0,0,.12);overflow:hidden}
+  .bar i span{display:block;height:100%;background:var(--black);border-radius:99px;transition:width .6s cubic-bezier(.2,.7,.2,1)}
+  .bar b{text-align:right;font-weight:500;color:#55544f}
+  .rev-list{display:grid;gap:1rem}
+  .rev{background:var(--paper);border-radius:12px;padding:1.5rem;box-shadow:0 10px 30px -22px rgba(0,0,0,.3)}
+  .rev-top{display:flex;justify-content:space-between;gap:1rem;align-items:center;margin-bottom:.7rem}
+  .rev h3{margin:0 0 .35rem;font-size:1.05rem}
+  .rev p{margin:0;color:#3d3c39}
+  .who{display:flex;align-items:center;gap:.75rem;margin-top:1.1rem;font-size:.9rem;color:#55544f}
+  .av{width:36px;height:36px;border-radius:50%;background:var(--black);color:#fff;display:grid;place-items:center;font-weight:600;font-size:.82rem;flex:none}
+  .who strong{color:var(--black);display:block;font-size:.95rem}
+  .ver{font-size:.78rem;font-weight:600;background:var(--cream);padding:.2rem .6rem;border-radius:99px;color:var(--black);white-space:nowrap}
+  .date{font-size:.85rem;color:var(--ash)}
+
+  /* Related */
+  .related{padding:clamp(4rem,8vw,7rem) 0}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.75rem,3vw,2.5rem) clamp(1rem,2vw,1.75rem);margin-top:clamp(2rem,4vw,3rem)}
+  .pic{position:relative;display:block;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--cream);text-decoration:none}
+  .pic img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+  @media (hover:hover){.card:hover .pic img{transform:scale(1.05)}}
+  .meta{display:flex;justify-content:space-between;gap:.75rem;margin-top:.9rem}
+  .meta a{font-weight:600;text-decoration:none}
+  .meta a:hover{text-decoration:underline;text-underline-offset:3px}
+  .meta span{white-space:nowrap}
+  .qa-btn{margin-top:.9rem;width:100%;padding:.75rem;font-size:.85rem}
+  .qa{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+  .qa.open{grid-template-rows:1fr}
+  .qa > div{overflow:hidden}
+  .qa .row{display:grid;grid-template-columns:repeat(6,1fr);gap:.3rem;padding-top:.7rem}
+  .qa .row button{padding:.5rem 0;border:1.5px solid var(--line);background:var(--white);border-radius:6px;font-size:.78rem;font-weight:500}
+  .qa .row button:hover{background:var(--black);color:#fff;border-color:var(--black)}
+
+  /* Footer */
+  footer{background:var(--charcoal);color:var(--white);padding:clamp(3rem,6vw,5rem) 0 2rem}
+  .foot{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+  .foot .logo{font-size:2.2rem}
+  .foot p{max-width:32ch;color:rgba(255,255,255,.7);margin:.75rem 0 0}
+  .foot ul{list-style:none;margin:0;padding:0;display:flex;gap:1.75rem;flex-wrap:wrap;align-self:flex-end}
+  .foot a{text-decoration:none}
+  .foot a:hover{text-decoration:underline;text-underline-offset:3px}
+  .legal{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.18);font-size:.9rem;color:rgba(255,255,255,.7)}
+
+  /* Sticky mobile buy bar */
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(247,246,242,.97);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:.7rem clamp(1rem,4vw,1.5rem) calc(.7rem + env(safe-area-inset-bottom));display:none;align-items:center;gap:1rem;transform:translateY(110%);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+  .sticky.on{transform:none}
+  .sticky div{min-width:0;flex:1}
+  .sticky strong{display:block;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sticky span{font-size:.9rem;color:#444}
+  .sticky .btn{padding:.9rem 1.4rem}
+
+  /* Overlays */
+  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:80;opacity:0;pointer-events:none;transition:opacity .3s}
+  .scrim.on{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--paper);z-index:90;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;padding:1.5rem;visibility:hidden}
+  .drawer.on{transform:none;visibility:visible}
+  .drawer-top{display:flex;justify-content:space-between;align-items:center}
+  .drawer-top h2{margin:0;font-family:var(--display);font-stretch:70%;font-weight:850;font-size:2rem;text-transform:uppercase}
+  .lines{flex:1;overflow:auto;margin:1.25rem 0;display:grid;gap:1.25rem;align-content:start}
+  .line{display:grid;grid-template-columns:76px 1fr auto;gap:.9rem;align-items:start}
+  .line img{width:76px;height:95px;object-fit:cover;border-radius:8px}
+  .line small{display:block;color:var(--ash)}
+  .line .qty{margin:.4rem .75rem .25rem 0;border-color:var(--line)}
+  .line .qty button{width:30px;min-height:30px;height:30px}
+  .link-btn{background:none;border:0;padding:0;text-decoration:underline;font-size:.85rem;color:var(--ash)}
+  .empty{color:#444}
+  .total{display:flex;justify-content:space-between;font-weight:600;margin-bottom:1rem}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+
+  dialog{border:0;padding:0;border-radius:14px;max-width:min(560px,94vw);width:100%;max-height:92svh;overflow:auto;background:var(--paper);color:var(--black)}
+  dialog[open]{animation:pop .3s cubic-bezier(.2,.7,.2,1)}
+  @keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+  dialog::backdrop{background:rgba(0,0,0,.55)}
+  .dlg{padding:clamp(1.5rem,4vw,2.25rem);position:relative}
+  .dlg .x{position:absolute;top:.6rem;right:.6rem}
+  .dlg h2{padding-right:2.5rem;margin-bottom:1.25rem}
+  table{width:100%;border-collapse:collapse;font-size:.95rem}
+  th,td{padding:.7rem .5rem;text-align:left;border-bottom:1px solid var(--line)}
+  th{font-weight:600}
+  .note{font-size:.88rem;color:#55544f;margin:1rem 0 0}
+  .field{display:grid;gap:.4rem;margin-bottom:1rem}
+  .field label,.field .lab{font-weight:600;font-size:.9rem}
+  .field input,.field textarea{width:100%;padding:.85rem 1rem;border:1.5px solid var(--line);border-radius:var(--r);background:var(--white)}
+  .field textarea{min-height:120px;resize:vertical}
+  .starpick{display:flex;gap:.25rem}
+  .starpick button{background:none;border:0;padding:.15rem}
+  .starpick svg{width:30px;height:30px;fill:none;stroke:var(--black);stroke-width:1.5;transition:fill .15s}
+  .starpick button.on svg{fill:var(--black)}
+
+  .toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,150%);background:var(--black);color:#fff;padding:.8rem 1.25rem;border-radius:var(--r);z-index:120;transition:transform .35s cubic-bezier(.2,.7,.2,1);font-size:.95rem;max-width:92vw}
+  .toast.on{transform:translate(-50%,0)}
+
+  /* Responsive */
+  @media (max-width:1000px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .rev-wrap{grid-template-columns:1fr}
+    .sum{position:static}
+  }
+  @media (max-width:860px){
+    .pdp-grid{grid-template-columns:1fr}
+    .gal{grid-template-columns:1fr;position:static}
+    .stage{order:-1}
+    .thumbs{grid-template-columns:repeat(5,1fr)}
+    .sticky{display:flex}
+    footer{padding-bottom:6rem}
+  }
+  @media (max-width:760px){
+    .nav-in{grid-template-columns:auto 1fr}
+    .links{position:fixed;top:var(--nav-h);left:0;right:0;background:var(--paper);flex-direction:column;gap:0;padding:.5rem clamp(1.25rem,4vw,3rem) 1.5rem;box-shadow:0 20px 40px rgba(0,0,0,.15);transform:translateY(-120%);transition:transform .3s;z-index:-1;visibility:hidden}
+    .links.on{transform:none;visibility:visible}
+    .links a{padding:1rem 0;font-size:1.2rem;border-bottom:1px solid var(--line)}
+    .links a::after{display:none}
+    .burger{display:grid}
+  }
+  @media (max-width:520px){
+    .perks{grid-template-columns:1fr}
+    .grid{gap:1.75rem .75rem}
+    .meta{flex-direction:column;gap:.1rem}
+    .qa .row{grid-template-columns:repeat(3,1fr)}
+    .score b{font-size:4.5rem}
+    .rev-top{flex-direction:column;align-items:flex-start;gap:.4rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6L12 16.7 6.6 19.6l1.1-6L3.200 9.400l6.1-.8L12 3Z"/></symbol>
+    <symbol id="i-cotton" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 4-13 14-14 0 9-4 14-12 14"/><path d="M5 19 13 11"/></symbol>
+    <symbol id="i-fit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4 4 6l-2 5 3 1 1-2v10h10V10l1 2 3-1-2-5-4-2c-.6 1.5-2 2.300-4 2.300S8.600 5.500 8 4Z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.500 6v5.500c0 4.500 3.200 7.800 7.500 9.500 4.300-1.700 7.500-5 7.500-9.500V6L12 3Z"/><path d="m9 12 2.200 2.200L15.200 10"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.500" r="1.800"/><circle cx="17" cy="17.500" r="1.800"/></symbol>
+    <symbol id="i-return" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2M20 4v5h-5M4 20v-5h5"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" data-brand>[BRAND NAME]</a>
+    <nav class="links" id="links" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="shop.html" aria-current="page">Shop</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="icons">
+      <button class="ic" id="btnBag" aria-label="Open shopping bag"><svg><use href="#i-bag"/></svg><span class="count" id="count" aria-live="polite">0</span></button>
+      <button class="ic burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="top">
+    <div class="wrap">
+      <nav class="crumbs" id="crumbs" aria-label="Breadcrumb"></nav>
+      <div class="pdp-grid">
+        <div class="gal">
+          <div class="thumbs" id="thumbs" role="group" aria-label="Product images"></div>
+          <div class="stage">
+            <div class="zoom" id="zoom"><span class="tag" id="tag" hidden></span><img id="mainImg" alt=""><span class="cap" id="cap"></span></div>
+          </div>
+        </div>
+
+        <div class="info" id="info"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews" aria-labelledby="rev-title">
+    <div class="wrap">
+      <h2 class="h-lg" id="rev-title">Customer Reviews</h2>
+      <div class="rev-wrap">
+        <div class="sum" id="sum"></div>
+        <div class="rev-list" id="revList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="related" aria-labelledby="rel-title">
+    <div class="wrap">
+      <h2 class="h-lg" id="rel-title">You May Also Like</h2>
+      <div class="grid" id="related"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="index.html" data-brand>[BRAND NAME]</a>
+        <p>Premium clothing for people who move differently.</p>
+      </div>
+      <ul>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="#">Delivery &amp; Returns</a></li>
+      </ul>
+    </div>
+    <div class="legal">© 2026 <span data-brand>[BRAND NAME]</span>. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky" aria-label="Quick add to cart">
+  <div><strong id="stName"></strong><span id="stPrice"></span></div>
+  <button class="btn btn-dark" id="stBtn">Add to Cart</button>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping bag" aria-hidden="true">
+  <div class="drawer-top"><h2>Your bag</h2><button class="ic" id="closeBag" aria-label="Close bag"><svg><use href="#i-close"/></svg></button></div>
+  <div class="lines" id="lines"></div>
+  <div class="total"><span>Total</span><span id="total"></span></div>
+  <button class="btn btn-dark btn-block" id="checkout">Checkout</button>
+</aside>
+
+<dialog id="guideDlg" aria-label="Size guide"></dialog>
+<dialog id="reviewDlg" aria-label="Write a review"></dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ============================================================
+   EDIT ME: brand details, photos, products, policies
+   ============================================================ */
+const CONFIG = {
+  brand: "[BRAND NAME]",
+  currency: "₦",
+  checkoutUrl: ""     // e.g. "checkout.html". Leave empty to just open the bag.
+};
+
+/* Real photos: give a product exactly 5 images, in this order:
+   front, back, fabric close-up, model wearing it, detail.
+   IMAGES.products["oversized-hoodie"] = ["img/front.jpg","img/back.jpg","img/fabric.jpg","img/model.jpg","img/detail.jpg"]
+   Anything left empty shows a placeholder illustration (which changes with the chosen color). */
+const IMAGES = { products: {} };
+const VIEWS = ["Front","Back","Fabric close-up","On model","Detail"];
+
+const SIZES = ["XS","S","M","L","XL","XXL"];
+/* Flat measurements in cm. Replace with your real size chart. */
+const SIZE_CHART = [["XS",56,66],["S",58,68],["M",60,70],["L",62,72],["XL",64,74],["XXL",66,76]];
+
+const POLICY = {
+  delivery: ["Standard delivery: 2 to 5 working days.","Express delivery: 1 to 2 working days.","Free standard delivery on orders over ₦100,000.","You'll get a tracking link as soon as your order ships."],
+  returns: "Not right? Return unworn items with tags within 14 days for an exchange or refund. Return shipping is free for exchanges."
+};
+
+const POLY = "60% polyester, 40% cotton. Heavyweight brushed fleece.";
+const COTTON = "100% combed cotton. Dense, soft jersey.";
+const PRODUCTS = [
+  {id:"oversized-hoodie", name:"Essential Oversized Hoodie", cat:"Hoodies",     shape:"hoodie", price:45000, badge:"Best Seller", desc:"An everyday oversized hoodie designed for comfort, durability and effortless style.", fabric:"100% premium cotton. Heavyweight brushed fleece, 400gsm.", colors:[["Black","#161616"],["Cream","#eae5d9"],["Grey","#77777a"]]},
+  {id:"classic-tee",      name:"Classic Cotton T-Shirt",     cat:"T-Shirts",    shape:"tee",    price:22000, badge:"",            desc:"The everyday tee in dense cotton with a clean, durable neckline.", fabric:COTTON, colors:[["White","#f4f3ef"],["Black","#161616"],["Stone","#b9b3a6"]]},
+  {id:"logo-hoodie",      name:"Signature Logo Hoodie",      cat:"Hoodies",     shape:"hoodie", price:52000, badge:"New",         desc:"Our signature hoodie with an embroidered chest logo and lined hood.", fabric:POLY, colors:[["Charcoal","#3a3a38"],["Cream","#eae5d9"],["Cobalt","#2f3cff"]]},
+  {id:"crewneck",         name:"Everyday Crewneck",          cat:"Sweatshirts", shape:"crew",   price:38000, badge:"",            desc:"A soft, structured crewneck made to wear on repeat.", fabric:POLY, colors:[["Charcoal","#3a3a38"],["Cream","#eae5d9"]]},
+  {id:"relaxed-tee",      name:"Premium Relaxed Tee",        cat:"T-Shirts",    shape:"tee",    price:26000, badge:"Best Seller", desc:"A heavier tee with a relaxed drop and a slightly longer body.", fabric:COTTON, colors:[["Black","#161616"],["Sand","#c8bda4"],["White","#f4f3ef"]]},
+  {id:"sweatpants",       name:"Essential Sweatpants",       cat:"Sweatpants",  shape:"pants",  price:42000, badge:"New",         desc:"Tapered, relaxed sweatpants with a drawcord waist and deep pockets.", fabric:POLY, colors:[["Black","#161616"],["Ash","#8c8c88"]]},
+  {id:"zip-hoodie",       name:"Heavyweight Zip Hoodie",     cat:"Hoodies",     shape:"hoodie", price:56000, badge:"",            desc:"A full-zip hoodie in our heaviest fleece, built for colder days.", fabric:POLY, colors:[["Black","#161616"],["Grey","#77777a"]]},
+  {id:"boxy-crew",        name:"Boxy Crewneck",              cat:"Sweatshirts", shape:"crew",   price:40000, badge:"New",         desc:"A cropped, boxy sweatshirt with a ribbed hem and cuffs.", fabric:POLY, colors:[["Cobalt","#2f3cff"],["Black","#161616"]]}
+];
+const RELATED_ORDER = ["logo-hoodie","classic-tee","crewneck","sweatpants","relaxed-tee","zip-hoodie","boxy-crew","oversized-hoodie"];
+
+/* Starting review stats. 24 reviews averaging 4.9. New reviews are added on top. */
+const BASE_COUNTS = {5:22,4:2,3:0,2:0,1:0};
+const REVIEWS = [
+  {n:"Amaka O.", r:5, t:"Exactly the oversized fit I wanted", b:"Heavy, soft on the inside and the drop shoulder sits perfectly. I'm 5'6 and took a medium for a roomy look.", m:"Size M · Black", d:"2 weeks ago"},
+  {n:"Tunde B.", r:5, t:"The quality is obvious", b:"Thick fabric that hasn't pilled after several washes. Delivery was quick and the packaging felt premium.", m:"Size L · Cream", d:"3 weeks ago"},
+  {n:"Chidera N.", r:5, t:"I get asked where it's from", b:"Oversized without looking sloppy. The hood holds its shape and the cuffs are snug. Already eyeing a second color.", m:"Size M · Grey", d:"1 month ago"},
+  {n:"Zainab A.", r:4, t:"Great hoodie, runs roomy", b:"Love the quality. It's properly oversized, so go down a size if you want it less boxy. Support sorted my exchange the same day.", m:"Size L · Black", d:"1 month ago"},
+  {n:"Emeka I.", r:5, t:"Worth every naira", b:"Wore it all through the rainy season. Warm without being heavy, and the black hasn't faded at all.", m:"Size XL · Black", d:"2 months ago"}
+];
+
+/* ---------- Placeholder artwork ---------- */
+const SHAPES = {
+  hoodie:'<path d="M58 44 L88 34 Q100 52 112 34 L142 44 L186 156 L162 166 L144 104 L144 214 L56 214 L56 104 L38 166 L14 156 Z"/><path d="M70 40 Q100 -8 130 40 Q100 66 70 40Z" fill-opacity=".85"/><path d="M72 150 L128 150 L138 188 L62 188Z" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="1.5"/>',
+  tee:'<path d="M60 40 L90 30 Q100 50 110 30 L140 40 L182 82 L158 106 L142 92 L142 212 L58 212 L58 92 L42 106 L18 82 Z"/>',
+  crew:'<path d="M62 38 L90 30 Q100 48 110 30 L138 38 L186 152 L162 162 L142 104 L142 206 L58 206 L58 104 L38 162 L14 152 Z"/><path d="M58 196 H142" stroke="rgba(0,0,0,.25)" stroke-width="1.5"/>',
+  pants:'<path d="M62 30 L138 30 L148 224 L108 224 L100 96 L92 224 L52 224 Z"/><path d="M62 44 H138" stroke="rgba(0,0,0,.25)" stroke-width="1.5"/>'
+};
+const uri=svg=>"data:image/svg+xml;charset=utf-8,"+encodeURIComponent(svg);
+const frame=(inner,bg1="#dcd8cf",bg2="#c9c4b9")=>uri(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${bg1}"/><stop offset="1" stop-color="${bg2}"/></linearGradient></defs><rect width="200" height="250" fill="url(#g)"/>${inner}</svg>`);
+const garment=(shape,c,s,x,y,mark)=>`<g transform="translate(${x} ${y}) scale(${s})" fill="${c}" stroke="rgba(0,0,0,.2)" stroke-width="1">${SHAPES[shape]}${mark==="front"&&shape!=="pants"?'<rect x="112" y="76" width="14" height="4" fill="rgba(255,255,255,.55)"/>':""}${mark==="back"&&shape!=="pants"?'<rect x="86" y="70" width="28" height="28" fill="rgba(255,255,255,.5)"/>':""}</g>`;
+const fabricArt=c=>uri(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice"><defs><pattern id="p" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(28)"><rect width="5" height="5" fill="${c}"/><path d="M0 1H5" stroke="rgba(255,255,255,.2)" stroke-width="1.2"/><path d="M0 3.500H5" stroke="rgba(0,0,0,.28)" stroke-width="1.2"/></pattern><radialGradient id="v" cx=".5" cy=".4" r=".8"><stop offset=".4" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".4"/></radialGradient></defs><rect width="200" height="250" fill="url(#p)"/><rect width="200" height="250" fill="url(#v)"/></svg>`);
+const modelArt=(shape,c)=>frame(`<rect x="70" y="148" width="24" height="102" rx="6" fill="#1d1d1c"/><rect x="106" y="148" width="24" height="102" rx="6" fill="#1d1d1c"/><circle cx="100" cy="30" r="15" fill="#8a8780"/>${garment(shape,c,.64,36,26,"front")}`,"#e3ded3","#c5bfb2");
+function imgs(p,ci){
+  if(IMAGES.products[p.id]) return IMAGES.products[p.id];
+  const c=p.colors[ci][1];
+  return [
+    frame(garment(p.shape,c,.78,22,34,"front")),
+    frame(garment(p.shape,c,.78,22,34,"back"),"#2c2c2a","#121211"),
+    fabricArt(c),
+    modelArt(p.shape,c),
+    frame(garment(p.shape,c,1.7,-52,-18,"front"),"#e7e3da","#d5d0c5")
+  ];
+}
+
+/* ---------- Helpers & state ---------- */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const money=n=>CONFIG.currency+n.toLocaleString("en-US");
+const byId=id=>PRODUCTS.find(p=>p.id===id);
+const P=byId(new URLSearchParams(location.search).get("id"))||PRODUCTS[0];
+let ci=0, size=null, qty=1, view=0;
+let cart=[]; try{cart=JSON.parse(localStorage.getItem("cart")||"[]")}catch(e){}
+const counts={...BASE_COUNTS}; const reviews=[...REVIEWS];
+const starsHTML=n=>Array.from({length:5},(_,i)=>`<svg class="${i<Math.round(n)?"":"off"}"><use href="#i-star"/></svg>`).join("");
+const stats=()=>{const t=Object.values(counts).reduce((a,b)=>a+b,0); const a=Object.entries(counts).reduce((s,[k,v])=>s+k*v,0)/t; return {t,a}};
+
+document.title=`${P.name} | ${CONFIG.brand}`;
+$$("[data-brand]").forEach(e=>e.textContent=CONFIG.brand);
+
+/* ---------- Gallery ---------- */
+function drawGallery(){
+  const im=imgs(P,ci);
+  $("#thumbs").innerHTML=im.map((s,i)=>`<button class="thumb" data-v="${i}" aria-pressed="${i===view}" aria-label="${VIEWS[i]||"Image "+(i+1)}"><img src="${s}" alt=""></button>`).join("");
+  setMain(im);
+}
+function setMain(im=imgs(P,ci)){
+  const z=$("#zoom"), img=$("#mainImg");
+  z.classList.add("fade");
+  setTimeout(()=>{ img.src=im[view]; img.alt=`${P.name} in ${P.colors[ci][0]}, ${VIEWS[view]||"image "+(view+1)}`; z.classList.remove("fade") },120);
+  $("#cap").textContent=VIEWS[view]||"";
+  $$(".thumb").forEach((b,i)=>b.setAttribute("aria-pressed",i===view));
+}
+$("#thumbs").addEventListener("click",e=>{const b=e.target.closest("[data-v]"); if(b){view=+b.dataset.v; setMain()}});
+const zoom=$("#zoom");
+zoom.addEventListener("mousemove",e=>{const r=zoom.getBoundingClientRect(); zoom.style.setProperty("--x",((e.clientX-r.left)/r.width*100)+"%"); zoom.style.setProperty("--y",((e.clientY-r.top)/r.height*100)+"%")});
+zoom.addEventListener("mouseleave",()=>{zoom.style.removeProperty("--x");zoom.style.removeProperty("--y")});
+if(P.badge){const t=$("#tag"); t.textContent=P.badge; t.hidden=false}
+
+/* ---------- Info column ---------- */
+const ICON=(id)=>`<svg><use href="#${id}"/></svg>`;
+function drawInfo(){
+  const {t,a}=stats();
+  $("#crumbs").innerHTML=`<a href="index.html">Home</a><span aria-hidden="true">/</span><a href="shop.html">Shop</a><span aria-hidden="true">/</span><a href="shop.html#${P.cat==="Hoodies"?"hoodies":P.cat==="T-Shirts"?"tshirts":P.cat==="Sweatshirts"?"sweatshirts":"all"}">${P.cat}</a><span aria-hidden="true">/</span><span aria-current="page">${P.name}</span>`;
+  $("#info").innerHTML=`
+    <h1 class="h-lg">${P.name}</h1>
+    <div class="rate"><span class="stars" aria-hidden="true">${starsHTML(a)}</span><a href="#reviews" id="rateTxt" aria-label="${a.toFixed(1)} out of 5 stars, ${t} reviews. Jump to reviews">${a.toFixed(1)} (${t} reviews)</a></div>
+    <div class="price">${money(P.price)}</div>
+    <p class="lead">${P.desc}</p>
+
+    <div><p class="lbl">Color <span id="colName">${P.colors[ci][0]}</span></p>
+      <div class="swatches" role="group" aria-label="Color">${P.colors.map((c,i)=>`<button class="sw" style="--c:${c[1]}" data-c="${i}" aria-label="${c[0]}" aria-pressed="${i===ci}"></button>`).join("")}</div></div>
+
+    <div id="sizeBox"><p class="lbl">Size <span id="sizeName">${size||"Select a size"}</span></p>
+      <div class="sizes" role="group" aria-label="Size">${SIZES.map(s=>`<button class="size" data-s="${s}" aria-pressed="${s===size}">${s}</button>`).join("")}</div>
+      <button class="guide" id="guideBtn">Size Guide</button>
+      <p class="err" id="err" role="alert"></p></div>
+
+    <div id="buyBox" style="display:grid;gap:.75rem">
+      <div class="buy">
+        <div class="qty" role="group" aria-label="Quantity"><button data-q="-1" aria-label="Decrease quantity">−</button><output id="qtyOut" aria-live="polite">${qty}</output><button data-q="1" aria-label="Increase quantity">+</button></div>
+        <button class="btn btn-dark btn-xl" id="addBtn">Add to Cart</button>
+      </div>
+      <button class="btn btn-line btn-xl btn-block" id="buyBtn">Buy it Now</button>
+    </div>
+
+    <ul class="perks">
+      <li>${ICON("i-cotton")}100% Premium Cotton</li>
+      <li>${ICON("i-fit")}Comfortable Oversized Fit</li>
+      <li>${ICON("i-shield")}Durable Construction</li>
+      <li>${ICON("i-truck")}Fast Delivery</li>
+      <li>${ICON("i-return")}Easy Returns</li>
+    </ul>
+
+    <div class="acc" id="acc">
+      ${accItem("Description",`<p>${P.desc} Cut with a dropped shoulder, a generous body and a lined hood that holds its shape, it's made to be worn from the first cold morning to the last late night.</p><p>Finished with a ribbed hem and cuffs, a kangaroo pocket and a clean chest logo. Take your usual size for the intended oversized look, or size down for a closer fit.</p>`,true)}
+      ${accItem("Materials & Care",`<p><strong>Fabric:</strong> ${P.fabric}</p><ul><li>Machine wash cold, inside out, with similar colors.</li><li>Do not bleach.</li><li>Tumble dry low or hang to dry.</li><li>Iron on low heat, avoiding the logo.</li></ul><p>Wash separately for the first few washes to keep the color deep.</p>`)}
+      ${accItem("Shipping & Returns",`<ul>${POLICY.delivery.map(d=>`<li>${d}</li>`).join("")}</ul><p>${POLICY.returns}</p>`)}
+    </div>`;
+  $("#stName").textContent=P.name; $("#stPrice").textContent=money(P.price);
+  observeBuy();
+}
+function accItem(title,body,open=false){
+  const id="a"+title.replace(/\W/g,"");
+  return `<div class="acc-item"><button class="acc-btn" aria-expanded="${open}" aria-controls="${id}" data-acc><span>${title}</span><svg aria-hidden="true"><use href="#i-plus"/></svg></button><div class="acc-panel ${open?"open":""}" id="${id}"><div>${body}<div class="gap"></div></div></div></div>`;
+}
+$("#info").addEventListener("click",e=>{
+  const c=e.target.closest("[data-c]"), s=e.target.closest("[data-s]"), q=e.target.closest("[data-q]"), acc=e.target.closest("[data-acc]");
+  if(c){ci=+c.dataset.c; $$(".sw").forEach(b=>b.setAttribute("aria-pressed",b===c)); $("#colName").textContent=P.colors[ci][0]; drawGallery()}
+  else if(s){size=s.dataset.s; $$(".size").forEach(b=>b.setAttribute("aria-pressed",b===s)); $("#sizeName").textContent=size; $("#err").textContent=""}
+  else if(q){qty=Math.max(1,Math.min(10,qty+ +q.dataset.q)); $("#qtyOut").textContent=qty}
+  else if(acc){const open=acc.getAttribute("aria-expanded")!=="true"; acc.setAttribute("aria-expanded",open); $("#"+acc.getAttribute("aria-controls")).classList.toggle("open",open)}
+  else if(e.target.closest("#addBtn")){ if(need()){add(P,ci,size,qty); toast(`${P.name} added to your bag`)} }
+  else if(e.target.closest("#buyBtn")){ if(need()){add(P,ci,size,qty); CONFIG.checkoutUrl?location.href=CONFIG.checkoutUrl:openBag()} }
+  else if(e.target.closest("#guideBtn")) openGuide();
+});
+function need(){
+  if(size) return true;
+  $("#err").textContent="Choose a size first.";
+  $("#sizeBox").scrollIntoView({behavior:"smooth",block:"center"});
+  return false;
+}
+
+/* Sticky mobile bar appears once the main buttons scroll out of view */
+let io;
+function observeBuy(){
+  if(io) io.disconnect();
+  io=new IntersectionObserver(([en])=>{
+    const gone=!en.isIntersecting && en.boundingClientRect.top<0;
+    $("#sticky").classList.toggle("on",gone);
+  });
+  io.observe($("#buyBox"));
+}
+$("#stBtn").onclick=()=>{ if(need()){add(P,ci,size,qty); toast(`${P.name} added to your bag`)} };
+
+/* ---------- Size guide ---------- */
+function openGuide(){
+  const d=$("#guideDlg");
+  d.innerHTML=`<div class="dlg"><button class="ic x" data-close aria-label="Close"><svg><use href="#i-close"/></svg></button>
+    <h2 class="h-md">Size Guide</h2>
+    <table><thead><tr><th>Size</th><th>Chest (cm)</th><th>Length (cm)</th></tr></thead><tbody>${SIZE_CHART.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("")}</tbody></table>
+    <p class="note">Measurements are laid flat. This is an oversized fit, so take your usual size for the intended look, or go down one size for a closer fit.</p></div>`;
+  d.onclick=e=>{if(e.target===d||e.target.closest("[data-close]")) d.close()};
+  d.showModal();
+}
+
+/* ---------- Reviews ---------- */
+function drawReviews(){
+  const {t,a}=stats();
+  $("#sum").innerHTML=`
+    <div class="score"><b>${a.toFixed(1)}</b><div><span class="stars" aria-hidden="true">${starsHTML(a)}</span><small>Based on ${t} reviews</small></div></div>
+    <div class="bars" aria-label="Rating breakdown">${[5,4,3,2,1].map(k=>`<div class="bar"><span>${k} star</span><i><span style="width:${t?counts[k]/t*100:0}%"></span></i><b>${counts[k]}</b></div>`).join("")}</div>
+    <button class="btn btn-dark" id="writeBtn">Write a Review</button>`;
+  $("#revList").innerHTML=reviews.map(r=>`<article class="rev">
+    <div class="rev-top"><span class="stars" aria-label="${r.r} out of 5 stars">${starsHTML(r.r)}</span><span class="date">${r.d}</span></div>
+    <h3>${r.t}</h3><p>${r.b}</p>
+    <div class="who"><span class="av" aria-hidden="true">${r.n.split(" ").map(w=>w[0]).join("").slice(0,2)}</span><div><strong>${r.n}</strong>${r.m}</div><span class="ver" style="margin-left:auto">${r.v===false?"Customer":"Verified buyer"}</span></div></article>`).join("");
+  const rt=$("#rateTxt"); if(rt){rt.textContent=`${a.toFixed(1)} (${t} reviews)`}
+}
+$("#sum").addEventListener("click",e=>{if(e.target.closest("#writeBtn")) openReview()});
+
+function openReview(){
+  const d=$("#reviewDlg"); let rating=0;
+  d.innerHTML=`<form class="dlg" id="revForm" novalidate>
+    <button class="ic x" type="button" data-close aria-label="Close"><svg><use href="#i-close"/></svg></button>
+    <h2 class="h-md">Write a Review</h2>
+    <div class="field"><span class="lab" id="rl">Your rating</span><div class="starpick" role="group" aria-labelledby="rl">${[1,2,3,4,5].map(n=>`<button type="button" data-r="${n}" aria-label="${n} star${n>1?"s":""}"><svg><use href="#i-star"/></svg></button>`).join("")}</div></div>
+    <div class="field"><label for="rn">Name</label><input id="rn" autocomplete="given-name" placeholder="Your first name and initial"></div>
+    <div class="field"><label for="rt">Title</label><input id="rt" placeholder="Sum it up in a few words"></div>
+    <div class="field"><label for="rb">Your review</label><textarea id="rb" placeholder="How does it fit and feel?"></textarea></div>
+    <p class="err" id="rerr" role="alert"></p>
+    <button class="btn btn-dark btn-block" type="submit">Submit review</button></form>`;
+  const paint=()=>$$("[data-r]",d).forEach(b=>b.classList.toggle("on",+b.dataset.r<=rating));
+  d.onclick=e=>{
+    if(e.target===d||e.target.closest("[data-close]")) return d.close();
+    const s=e.target.closest("[data-r]"); if(s){rating=+s.dataset.r; paint()}
+  };
+  $("#revForm",d).onsubmit=e=>{
+    e.preventDefault();
+    const n=$("#rn").value.trim(), t=$("#rt").value.trim(), b=$("#rb").value.trim();
+    if(!rating||!n||!b){$("#rerr").textContent="Add a star rating, your name and a few words about the hoodie."; return}
+    counts[rating]++; reviews.unshift({n,r:rating,t:t||"Review",b,m:`Size ${size||"-"} · ${P.colors[ci][0]}`,d:"Just now",v:false});
+    drawReviews(); d.close(); toast("Thanks, your review is up.");
+    drawInfo();
+  };
+  d.showModal();
+}
+
+/* ---------- Related ---------- */
+function drawRelated(){
+  const list=RELATED_ORDER.filter(id=>id!==P.id).slice(0,4).map(byId);
+  $("#related").innerHTML=list.map(p=>`<article class="card" data-id="${p.id}">
+    <a class="pic" href="product.html?id=${p.id}" aria-label="View ${p.name}"><img src="${imgs(p,0)[0]}" alt="${p.name}" loading="lazy"></a>
+    <div class="meta"><a href="product.html?id=${p.id}">${p.name}</a><span>${money(p.price)}</span></div>
+    <button class="btn btn-line qa-btn" data-qa aria-expanded="false">Quick Add</button>
+    <div class="qa"><div><div class="row" role="group" aria-label="Choose a size">${SIZES.map(s=>`<button data-qs="${s}">${s}</button>`).join("")}</div></div></div>
+  </article>`).join("");
+}
+$("#related").addEventListener("click",e=>{
+  const c=e.target.closest(".card"); if(!c) return;
+  const p=byId(c.dataset.id), tog=e.target.closest("[data-qa]"), qs=e.target.closest("[data-qs]");
+  if(tog){const open=tog.getAttribute("aria-expanded")!=="true"; tog.setAttribute("aria-expanded",open); $(".qa",c).classList.toggle("open",open); tog.textContent=open?"Choose a size":"Quick Add"}
+  else if(qs){add(p,0,qs.dataset.qs,1); toast(`${p.name} (${qs.dataset.qs}) added to your bag`); const b=$("[data-qa]",c); b.setAttribute("aria-expanded","false"); b.textContent="Quick Add"; $(".qa",c).classList.remove("open")}
+});
+
+/* ---------- Cart ---------- */
+function save(){try{localStorage.setItem("cart",JSON.stringify(cart))}catch(e){}}
+function add(p,c,sz,n){
+  const key=`${p.id}-${c}-${sz}`, hit=cart.find(l=>l.key===key);
+  hit?hit.qty=Math.min(10,hit.qty+n):cart.push({key,id:p.id,ci:c,size:sz,qty:n});
+  renderCart(true);
+}
+function renderCart(bump){
+  cart=cart.filter(l=>byId(l.id));
+  const n=cart.reduce((a,l)=>a+l.qty,0), c=$("#count");
+  c.textContent=n; c.style.display=n?"grid":"none";
+  if(bump){c.classList.add("bump");setTimeout(()=>c.classList.remove("bump"),250)}
+  $("#total").textContent=money(cart.reduce((a,l)=>a+l.qty*byId(l.id).price,0));
+  $("#checkout").disabled=!n;
+  $("#lines").innerHTML=n?cart.map(l=>{const p=byId(l.id);return `<div class="line">
+    <img src="${imgs(p,l.ci)[0]}" alt="">
+    <div><strong>${p.name}</strong><small>${p.colors[l.ci][0]} · ${l.size}</small>
+      <div class="qty" role="group" aria-label="Quantity"><button data-cq="${l.key}" data-d="-1" aria-label="Decrease quantity">−</button><output>${l.qty}</output><button data-cq="${l.key}" data-d="1" aria-label="Increase quantity">+</button></div>
+      <button class="link-btn" data-rm="${l.key}">Remove</button></div>
+    <span>${money(l.qty*p.price)}</span></div>`}).join("")
+    :`<p class="empty">Your bag is empty. Pick something from the collection.</p>`;
+  save();
+}
+$("#lines").addEventListener("click",e=>{
+  const rm=e.target.closest("[data-rm]"), cq=e.target.closest("[data-cq]");
+  if(rm) cart=cart.filter(l=>l.key!==rm.dataset.rm);
+  else if(cq){const l=cart.find(x=>x.key===cq.dataset.cq); l.qty=Math.min(10,l.qty+ +cq.dataset.d); if(l.qty<1) cart=cart.filter(x=>x!==l)}
+  else return;
+  renderCart();
+});
+$("#checkout").onclick=()=>CONFIG.checkoutUrl?location.href=CONFIG.checkoutUrl:toast("Connect your checkout here");
+
+/* ---------- Drawer, menu, toast ---------- */
+const scrim=$("#scrim"), drawer=$("#drawer");
+function openBag(){drawer.classList.add("on");drawer.setAttribute("aria-hidden","false");scrim.classList.add("on");$("#closeBag").focus()}
+function closeBag(){drawer.classList.remove("on");drawer.setAttribute("aria-hidden","true");scrim.classList.remove("on")}
+$("#btnBag").onclick=openBag; $("#closeBag").onclick=closeBag; scrim.onclick=closeBag;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeBag()});
+const burger=$("#burger"), links=$("#links");
+burger.onclick=()=>{const on=links.classList.toggle("on");burger.setAttribute("aria-expanded",on);burger.setAttribute("aria-label",on?"Close menu":"Open menu")};
+let tt; function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>el.classList.remove("on"),2400)}
+
+/* ---------- Start ---------- */
+drawGallery(); drawInfo(); drawReviews(); drawRelated(); renderCart();
+</script>
+</body>
+</html>

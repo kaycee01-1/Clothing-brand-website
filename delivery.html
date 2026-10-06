@@ -1,0 +1,541 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Track Your Order</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: dark hero with a package photo on one side; the tracker card overlaps the hero edge and is the visual focus; light info and delivery-zone sections; a dark band for the four-step process; FAQ; dark support close. Same identity as the About, Shop, Product, Cart and Contact pages. */
+:root{
+  --display:'Archivo','Arial Black',Impact,sans-serif;
+  --text:'Manrope','Helvetica Neue',Arial,sans-serif;
+  --bg:#F4F2EE; --fg:#111111; --muted:#6B6761; --body:#4F4B44; --line:#E4E0D9;
+  --card:#FFFFFF; --bone:#E6E1D6; --ph:#CFCBC4; --ph-fg:#4A4640;
+  --field:#FAF9F7; --field-line:#D4D0C8; --danger:#A32A1E; --ok:#2F6B4F; --ok-bg:#EEF3EF;
+  --band:#111111; --band-line:#4A463F; --hero:#2A2824;
+  --on-band:#F4F2EE; --on-band-muted:#C9C4BA;
+  --btn-ink:#111111; --btn-ink-fg:#FFFFFF;
+  --inner:#111111; --inner-fg:#FFFFFF;
+  --shadow:0 1px 2px rgba(17,17,17,.04),0 8px 30px rgba(17,17,17,.06);
+  --shadow-lift:0 22px 44px rgba(17,17,17,.16);
+  --shadow-hero:0 2px 4px rgba(17,17,17,.05),0 30px 70px rgba(17,17,17,.18);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#181715; --fg:#F4F2EE; --muted:#A8A398; --body:#C9C4BA; --line:#2E2B26;
+    --card:#22201D; --bone:#2E2B26; --ph:#3A3732; --ph-fg:#C9C4BA;
+    --field:#1B1A17; --field-line:#3F3B35; --danger:#F08A7E; --ok:#8FD0AC; --ok-bg:#1F2A24;
+    --band:#0D0D0C; --band-line:#3A3732; --hero:#1F1D1A;
+    --btn-ink:#F4F2EE; --btn-ink-fg:#111111;
+    --inner:#F4F2EE; --inner-fg:#111111;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 30px rgba(0,0,0,.35);
+    --shadow-lift:0 22px 44px rgba(0,0,0,.55);
+    --shadow-hero:0 2px 4px rgba(0,0,0,.4),0 30px 70px rgba(0,0,0,.55);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#181715; --fg:#F4F2EE; --muted:#A8A398; --body:#C9C4BA; --line:#2E2B26;
+  --card:#22201D; --bone:#2E2B26; --ph:#3A3732; --ph-fg:#C9C4BA;
+  --field:#1B1A17; --field-line:#3F3B35; --danger:#F08A7E; --ok:#8FD0AC; --ok-bg:#1F2A24;
+  --band:#0D0D0C; --band-line:#3A3732; --hero:#1F1D1A;
+  --btn-ink:#F4F2EE; --btn-ink-fg:#111111;
+  --inner:#F4F2EE; --inner-fg:#111111;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 30px rgba(0,0,0,.35);
+  --shadow-lift:0 22px 44px rgba(0,0,0,.55);
+  --shadow-hero:0 2px 4px rgba(0,0,0,.4),0 30px 70px rgba(0,0,0,.55);
+  color-scheme:dark;
+}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--text);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button,input{font-family:inherit}
+button{cursor:pointer}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+h1,h2,h3,p,dl,dd,ol{margin:0}
+ol{padding:0;list-style:none}
+h1,h2,h3{text-wrap:balance}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.display{font-family:var(--display);font-weight:900;text-transform:uppercase}
+.section{padding-block:clamp(56px,8vw,112px)}
+.h2{font-size:clamp(36px,5.5vw,68px);line-height:.95;letter-spacing:-.025em;margin-top:20px}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;min-height:84px}
+.nav-left{display:flex;align-items:center;gap:clamp(16px,3vw,40px);flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:900;font-size:22px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+.nav nav{display:flex;gap:clamp(14px,2.5vw,28px);flex-wrap:wrap;font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.nav a{text-decoration:none;transition:opacity .15s ease}
+.nav a:hover{opacity:.65}
+.nav .current{border-bottom:2px solid #fff;padding-bottom:2px}
+.bag{display:flex;align-items:center;gap:10px;min-height:44px;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+
+/* hero */
+.hero{background:var(--hero);color:#fff;overflow:hidden}
+.hero-grid{display:flex;flex-wrap:wrap;gap:32px clamp(32px,6vw,96px);align-items:center;padding-block:clamp(32px,5vw,64px) clamp(120px,13vw,170px)}
+.hero-grid>.txt{flex:1.2 1 360px;min-width:0;display:flex;flex-direction:column;gap:clamp(16px,2.4vw,28px)}
+.hero-grid>.pic{flex:1 1 300px;min-width:0}
+.hero h1{font-size:clamp(46px,8vw,124px);line-height:.92;letter-spacing:-.03em}
+.hero p{max-width:480px;font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:#E4E0D9}
+.hero .ph{aspect-ratio:4/5;max-height:520px;margin-left:auto;max-width:440px;width:100%;border-radius:20px;background:#3A3732;color:#C9C4BA;display:flex;align-items:flex-end;padding:20px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.r2{animation-delay:.15s}.r3{animation-delay:.3s}
+@keyframes rise{from{opacity:.25;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:800;text-transform:uppercase;border:1px solid transparent;border-radius:14px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease,border-color .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-lg{min-height:60px;padding:0 36px;font-size:14px;letter-spacing:.12em}
+.btn-ink{background:var(--btn-ink);color:var(--btn-ink-fg)}
+.btn-ink:hover{box-shadow:0 14px 28px rgba(17,17,17,.25)}
+.btn-light{background:#F4F2EE;color:#111}
+.btn-light:hover{box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.btn-outline{border-color:#6B6761;color:#fff;background:transparent}
+.btn-outline:hover{background:#F4F2EE;color:#111;border-color:#F4F2EE}
+
+/* tracker */
+.track-wrap{position:relative;z-index:2;margin-top:clamp(-120px,-9vw,-56px)}
+.tracker{background:var(--card);border-radius:28px;box-shadow:var(--shadow-hero);padding:clamp(24px,4.5vw,64px)}
+.tracker h2{font-size:clamp(36px,5.5vw,72px);line-height:.95;letter-spacing:-.03em;margin-top:16px}
+.t-form{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(24px,3vw,36px)}
+.t-form .in{flex:1 1 320px;min-width:0;position:relative}
+.t-label{display:block;margin-top:clamp(24px,3vw,36px);font-size:15px;font-weight:700}
+.t-label+.t-form{margin-top:12px}
+.t-form input{width:100%;height:68px;padding:0 22px 0 56px;border:2px solid var(--field-line);border-radius:16px;background:var(--field);color:var(--fg);font-size:19px;font-weight:600;letter-spacing:.02em;transition:border-color .15s ease,box-shadow .15s ease}
+.t-form input::placeholder{color:var(--muted);font-weight:500}
+.t-form input:focus{outline:none;border-color:var(--fg);box-shadow:0 0 0 4px rgba(128,124,116,.25)}
+.t-form .in svg{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.t-form .btn{height:68px;border:0;padding:0 44px;flex:0 1 auto}
+.t-form .btn[disabled]{opacity:.7;cursor:progress}
+.t-note{display:flex;align-items:flex-start;gap:10px;margin-top:16px;font-size:14px;color:var(--muted)}
+.t-note svg{flex:0 0 auto;margin-top:2px}
+.t-err{display:none;margin-top:14px;padding:14px 16px;border-radius:12px;background:rgba(163,42,30,.08);border:1px solid var(--danger);color:var(--danger);font-size:14px;font-weight:600}
+.t-err.show{display:block}
+.t-err a{color:inherit}
+.samples{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:20px;padding-top:20px;border-top:1px dashed var(--field-line);font-size:13px;color:var(--muted)}
+.chip{min-height:40px;padding:0 14px;border:1px solid var(--field-line);border-radius:999px;background:transparent;color:var(--fg);font-size:13px;font-weight:600;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.chip:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+
+/* result */
+.result{margin-top:clamp(28px,4vw,48px);padding-top:clamp(28px,4vw,48px);border-top:1px solid var(--line);animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+.r-head{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(32px,4vw,56px)}
+.r-head dl{display:flex;flex-wrap:wrap;gap:20px clamp(28px,5vw,64px)}
+.r-head dt{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.r-head dd{font-family:var(--display);font-weight:800;font-size:clamp(20px,2.4vw,28px);letter-spacing:-.01em}
+.badge{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px;border-radius:999px;background:var(--fg);color:var(--bg);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.badge.ok{background:var(--ok-bg);color:var(--ok)}
+.badge i{width:8px;height:8px;border-radius:50%;background:currentColor;animation:blink 1.6s ease-in-out infinite}
+.sample-tag{display:inline-block;margin-bottom:14px;padding:6px 12px;border:1px dashed var(--field-line);border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+@keyframes blink{50%{opacity:.25}}
+
+.tl{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.tl li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding-inline:8px}
+.tl li::after{content:"";position:absolute;top:23px;left:calc(50% + 34px);width:calc(100% - 68px);height:3px;border-radius:2px;background:var(--line)}
+.tl li.done::after{background:var(--fg)}
+.tl li:last-child::after{display:none}
+.mk{position:relative;flex:0 0 48px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--field-line);background:var(--card);color:var(--muted)}
+.tl li.done .mk{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.tl li.now .mk{border-color:var(--fg);color:var(--fg);box-shadow:0 0 0 6px rgba(128,124,116,.22)}
+.tl li.now .mk::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--fg);animation:ring 2s ease-out infinite}
+@keyframes ring{from{transform:scale(.9);opacity:.8}to{transform:scale(1.35);opacity:0}}
+.tl h3{font-family:var(--display);font-weight:800;font-size:17px;line-height:1.2;text-transform:uppercase;letter-spacing:-.005em}
+.tl li.todo h3{color:var(--muted)}
+.tl p{font-size:14px;line-height:1.5;color:var(--body);max-width:200px}
+.tl li.todo p{color:var(--muted)}
+.tl .st{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tl li.now .st{color:var(--fg)}
+.tl li.now .st{display:inline-block;padding:5px 10px;border-radius:999px;background:var(--fg);color:var(--bg)}
+.tl .dt{font-size:13px;font-weight:600;color:var(--muted)}
+.tl .txt{display:flex;flex-direction:column;align-items:center;gap:8px}
+
+@media (max-width:820px){
+  .tl{grid-template-columns:1fr;gap:0}
+  .tl li{flex-direction:row;align-items:flex-start;text-align:left;gap:20px;padding:0 0 32px 0}
+  .tl li:last-child{padding-bottom:0}
+  .tl li::after{top:52px;left:23px;width:3px;height:calc(100% - 56px)}
+  .tl .txt{align-items:flex-start;gap:6px;padding-top:2px}
+  .tl p{max-width:none}
+}
+
+/* delivery info */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:clamp(12px,2vw,24px);margin-top:clamp(28px,4vw,48px)}
+.dcard{border-radius:20px;padding:32px 28px 36px;min-height:320px;display:flex;flex-direction:column;justify-content:space-between;gap:40px;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
+.dcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift)}
+.dcard h3{font-family:var(--display);font-weight:900;font-size:28px;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:12px}
+.dcard .big{font-family:var(--display);font-weight:800;font-size:20px;line-height:1.25;margin-bottom:6px}
+.dcard p{font-size:15px;line-height:1.6}
+.dcard .lbl{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.d1{background:var(--card);color:var(--fg)}.d1 p,.d1 .lbl{color:var(--body)}
+.d2{background:#1B1B1B;color:#fff}.d2 p,.d2 .lbl{color:#C9C4BA}
+.d3{background:var(--bone);color:var(--fg)}.d3 p,.d3 .lbl{color:var(--body)}
+.fine{display:flex;align-items:flex-start;gap:10px;margin-top:24px;font-size:14px;color:var(--muted)}
+.fine svg{flex:0 0 auto;margin-top:2px}
+
+/* delivery areas */
+.areas{display:flex;flex-wrap:wrap;gap:clamp(32px,6vw,96px);align-items:center}
+.areas>.list{flex:1 1 380px;min-width:0}
+.areas>.viz{flex:1 1 360px;min-width:0;display:flex;justify-content:center}
+.zones{margin-top:clamp(24px,3vw,40px);border-top:1px solid var(--line)}
+.zone{display:flex;gap:20px;align-items:flex-start;padding-block:24px;border-bottom:1px solid var(--line);transition:padding-left .25s ease}
+.zone:hover{padding-left:10px}
+.zone .sw{flex:0 0 14px;width:14px;height:14px;border-radius:50%;margin-top:7px}
+.zone h3{font-family:var(--display);font-weight:800;font-size:clamp(22px,2.6vw,30px);text-transform:uppercase;letter-spacing:-.01em;margin-bottom:6px}
+.zone p{font-size:16px;line-height:1.6;color:var(--body)}
+.rings{width:100%;max-width:460px;height:auto}
+.pulse{animation:ringp 3s ease-out infinite;transform-origin:220px 220px}
+@keyframes ringp{0%{transform:scale(.55);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+
+/* process */
+.process{background:var(--band);color:var(--on-band)}
+.process .eyebrow{color:#B5B0A7}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:clamp(28px,3vw,40px);margin-top:clamp(32px,5vw,64px)}
+.step{position:relative}
+.step .ring{position:relative;width:72px;height:72px;border-radius:50%;border:1px solid var(--band-line);display:grid;place-items:center;margin-bottom:24px;animation:glow 8s ease-in-out infinite}
+.step:nth-child(2) .ring{animation-delay:2s}.step:nth-child(3) .ring{animation-delay:4s}.step:nth-child(4) .ring{animation-delay:6s}
+@keyframes glow{0%,22%,100%{background:transparent;border-color:#4A463F;color:#F4F2EE}6%,16%{background:#F4F2EE;border-color:#F4F2EE;color:#111}}
+.step .n{font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.14em;color:#B5B0A7;margin-bottom:10px}
+.step h3{font-family:var(--display);font-weight:900;font-size:26px;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:10px}
+.step p{font-size:15px;line-height:1.65;color:var(--on-band-muted);max-width:280px}
+@media (min-width:900px){
+  .step:not(:last-child)::after{content:"";position:absolute;top:36px;left:88px;right:-16px;height:1px;background:repeating-linear-gradient(90deg,#4A463F 0 6px,transparent 6px 12px)}
+}
+
+/* faq */
+.faq-wrap{display:flex;flex-wrap:wrap;gap:clamp(32px,6vw,96px);align-items:flex-start}
+.faq-wrap>.faq-head{flex:1 1 300px;min-width:0}
+.faq-wrap>.faq-list{flex:1.6 1 420px;min-width:0;border-top:1px solid var(--line)}
+.faq-head p.copy{margin-top:24px;font-size:17px;line-height:1.7;color:var(--body);max-width:360px}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;min-height:72px;padding:18px 0;border:0;background:transparent;color:var(--fg);text-align:left;font-family:var(--display);font-weight:800;font-size:clamp(17px,2vw,21px);line-height:1.25}
+.faq-q .plus{flex:0 0 36px;width:36px;height:36px;border-radius:50%;border:1px solid var(--field-line);display:grid;place-items:center;transition:transform .3s ease,background .2s ease,color .2s ease}
+.faq-q:hover .plus{background:var(--fg);color:var(--bg)}
+.faq-item.open .plus{transform:rotate(45deg)}
+.faq-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.faq-item.open .faq-panel{grid-template-rows:1fr}
+.faq-inner{overflow:hidden;visibility:hidden;transition:visibility .35s}
+.faq-item.open .faq-inner{visibility:visible}
+.faq-inner p{padding:0 56px 24px 0;font-size:16px;line-height:1.7;color:var(--body)}
+
+/* help */
+.help{background:var(--band);color:var(--on-band)}
+.help-inner{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(20px,3vw,32px);padding-block:clamp(72px,11vw,150px)}
+.help h2{max-width:1000px;font-size:clamp(42px,8vw,120px);line-height:.92;letter-spacing:-.03em}
+.help p{max-width:520px;font-size:18px;line-height:1.6;color:var(--on-band-muted)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.foot{border-top:1px solid var(--band-line)}
+.foot-inner{padding-block:24px;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;font-size:13px;color:#B5B0A7}
+.foot-inner strong{font-family:var(--display);font-weight:900;letter-spacing:.04em;color:var(--on-band)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rise,.result,.pulse,.badge i,.tl li.now .mk::after,.step .ring{animation:none}
+  .btn,.dcard,.zone,.faq-panel,.plus,.chip{transition:none}
+}
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <header class="wrap">
+    <div class="nav">
+      <div class="nav-left">
+        <a class="brand" href="#">[BRAND]</a>
+        <nav aria-label="Main">
+          <a href="#">Shop</a>
+          <a href="#">New In</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#" class="current" aria-current="page">Track Order</a>
+        </nav>
+      </div>
+      <a class="bag" href="#">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span>Bag</span>
+      </a>
+    </div>
+  </header>
+  <div class="wrap hero-grid">
+    <div class="txt">
+      <h1 class="display rise">Track Your Order.</h1>
+      <p class="rise r2">Stay updated from the moment your order leaves us until it reaches your doorstep.</p>
+    </div>
+    <div class="pic rise r3"><div class="ph">Photo: a package waiting on a doorstep, soft morning light</div></div>
+  </div>
+</section>
+
+<!-- TRACKER -->
+<section class="wrap track-wrap" id="track">
+  <div class="tracker">
+    <p class="eyebrow">Order tracking</p>
+    <h2 class="display">Where’s My Order?</h2>
+
+    <label class="t-label" for="order-no">Enter your Order Number</label>
+    <form class="t-form" id="t-form" novalidate>
+      <div class="in">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
+        <input id="order-no" name="order" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. #BRD-10482" aria-describedby="t-note t-err">
+      </div>
+      <button type="submit" class="btn btn-ink" id="t-btn">Track Order</button>
+    </form>
+    <p class="t-note" id="t-note">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+      <span>Your order number can be found in your confirmation email or SMS.</span>
+    </p>
+    <div class="t-err" id="t-err" role="alert"></div>
+
+    <div class="samples">
+      <span>Preview with a sample order:</span>
+      <button type="button" class="chip" data-sample="#BRD-10517">#BRD-10517 · Processing</button>
+      <button type="button" class="chip" data-sample="#BRD-10482">#BRD-10482 · Out for delivery</button>
+      <button type="button" class="chip" data-sample="#BRD-10391">#BRD-10391 · Delivered</button>
+    </div>
+
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- DELIVERY INFORMATION -->
+<section class="wrap section" id="info">
+  <p class="eyebrow">Delivery options</p>
+  <h2 class="display h2">Delivery Information</h2>
+  <div class="cards">
+    <article class="dcard d1">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v10H2z"/><path d="M13 9h4l3 3v4h-7V9z"/><circle cx="6.500" cy="17.500" r="1.800"/><circle cx="16.500" cy="17.500" r="1.800"/></svg>
+      <div><h3>Standard Delivery</h3><p class="lbl">Estimated delivery</p><p class="big">2–5 business days</p></div>
+    </article>
+    <article class="dcard d2">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+      <div><h3>Express Delivery</h3><p class="lbl">Estimated delivery</p><p class="big">1–2 business days</p></div>
+    </article>
+    <article class="dcard d3">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9l1.500-5h13L20 9"/><path d="M4 9v11h16V9"/><path d="M4 9a2.700 2.700 0 0 0 5.300 0 2.700 2.700 0 0 0 5.400 0A2.700 2.700 0 0 0 20 9"/><path d="M10 20v-5h4v5"/></svg>
+      <div><h3>Store Pickup</h3><p class="big">Pick up your order directly from our store.</p></div>
+    </article>
+  </div>
+  <p class="fine">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+    <span>Delivery times may vary depending on your location.</span>
+  </p>
+</section>
+
+<!-- WHERE WE DELIVER -->
+<section class="wrap section" style="padding-top:0" id="areas">
+  <div class="areas">
+    <div class="list">
+      <p class="eyebrow">Delivery areas</p>
+      <h2 class="display h2">Where We Deliver</h2>
+      <div class="zones">
+        <div class="zone"><span class="sw" style="background:var(--inner)"></span><div><h3>Lagos</h3><p>Same/next-day options available depending on location.</p></div></div>
+        <div class="zone"><span class="sw" style="background:var(--ph)"></span><div><h3>Across Nigeria</h3><p>Standard nationwide delivery available.</p></div></div>
+        <div class="zone"><span class="sw" style="background:var(--bone);border:1px solid var(--field-line)"></span><div><h3>International</h3><p>International shipping available to selected countries.</p></div></div>
+      </div>
+    </div>
+    <div class="viz">
+      <svg class="rings" viewBox="0 0 440 440" role="img" aria-label="Delivery zones: Lagos at the centre, then across Nigeria, then international">
+        <circle cx="220" cy="220" r="205" style="fill:var(--bone)"/>
+        <circle cx="220" cy="220" r="140" style="fill:var(--ph)"/>
+        <circle cx="220" cy="220" r="72" style="fill:var(--inner)"/>
+        <circle class="pulse" cx="220" cy="220" r="72" fill="none" style="stroke:var(--inner)" stroke-width="2"/>
+        <g fill="none" style="stroke:var(--muted)" stroke-width="1.500" stroke-dasharray="3 6" stroke-linecap="round">
+          <path d="M220 220 L330 135"/>
+          <path d="M220 220 L120 330"/>
+          <path d="M220 220 L355 305"/>
+        </g>
+        <g style="fill:var(--fg)">
+          <circle cx="330" cy="135" r="6"/><circle cx="120" cy="330" r="6"/><circle cx="355" cy="305" r="6"/>
+        </g>
+        <path d="M220 190c-9 0-16 7-16 16 0 11 16 26 16 26s16-15 16-26c0-9-7-16-16-16z" style="fill:var(--inner-fg)"/>
+        <circle cx="220" cy="206" r="5" style="fill:var(--inner)"/>
+        <g font-family="Archivo,Arial Black,sans-serif" font-weight="800" font-size="13" letter-spacing="2" text-anchor="middle">
+          <text x="220" y="262" style="fill:var(--inner-fg)">LAGOS</text>
+          <text x="220" y="94" style="fill:var(--fg)">ACROSS NIGERIA</text>
+          <text x="220" y="40" style="fill:var(--muted)">INTERNATIONAL</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY PROCESS -->
+<section class="process" id="process">
+  <div class="wrap section">
+    <p class="eyebrow">How it works</p>
+    <h2 class="display h2">From Our Hands To Yours</h2>
+    <ol class="steps">
+      <li class="step">
+        <div class="ring"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
+        <p class="n">01</p><h3>Order</h3><p>Place your order through our website.</p>
+      </li>
+      <li class="step">
+        <div class="ring"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></div>
+        <p class="n">02</p><h3>Prepare</h3><p>We carefully package your items.</p>
+      </li>
+      <li class="step">
+        <div class="ring"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v10H2z"/><path d="M13 9h4l3 3v4h-7V9z"/><circle cx="6.500" cy="17.500" r="1.800"/><circle cx="16.500" cy="17.500" r="1.800"/></svg></div>
+        <p class="n">03</p><h3>Ship</h3><p>Your order is handed to our delivery partner.</p>
+      </li>
+      <li class="step">
+        <div class="ring"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9.500 20v-6h5v6"/></svg></div>
+        <p class="n">04</p><h3>Delivered</h3><p>Your package arrives at your chosen address.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="wrap section" id="faq">
+  <div class="faq-wrap">
+    <div class="faq-head">
+      <p class="eyebrow">Help</p>
+      <h2 class="display h2">Delivery Questions?</h2>
+      <p class="copy">Quick answers about shipping, tracking and getting your order to you.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="a1" id="q1"><span>How long will my order take to arrive?</span><span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg></span></button>
+        <div class="faq-panel" id="a1" role="region" aria-labelledby="q1"><div class="faq-inner"><p>Standard delivery takes 2–5 business days and express delivery takes 1–2 business days. Times can vary depending on your location, and you’ll see your estimate at checkout.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="a2" id="q2"><span>How can I track my order?</span><span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg></span></button>
+        <div class="faq-panel" id="a2" role="region" aria-labelledby="q2"><div class="faq-inner"><p>Enter your order number in the tracker at the top of this page. You’ll find it in your confirmation email or SMS.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="a3" id="q3"><span>Can I change my delivery address?</span><span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg></span></button>
+        <div class="faq-panel" id="a3" role="region" aria-labelledby="q3"><div class="faq-inner"><p>Contact support with your order number as soon as you can. We can update the address while your order is still being prepared. Once it has shipped, a change depends on the delivery partner.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="a4" id="q4"><span>What happens if I miss my delivery?</span><span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg></span></button>
+        <div class="faq-panel" id="a4" role="region" aria-labelledby="q4"><div class="faq-inner"><p>Our delivery partner will contact you to arrange another attempt. After [X] attempts, the order is returned to us, so message support if you can’t be reached at the address.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="a5" id="q5"><span>Do you offer same-day delivery?</span><span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg></span></button>
+        <div class="faq-panel" id="a5" role="region" aria-labelledby="q5"><div class="faq-inner"><p>Same or next-day delivery is available in Lagos, depending on your location and when you order. Available options appear at checkout.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false" aria-controls="a6" id="q6"><span>Do you deliver outside Nigeria?</span><span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg></span></button>
+        <div class="faq-panel" id="a6" role="region" aria-labelledby="q6"><div class="faq-inner"><p>Yes, to selected countries: [list countries]. If yours isn’t shown at checkout, contact support and we’ll tell you what’s possible.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEED HELP -->
+<section class="help">
+  <div class="wrap help-inner">
+    <h2 class="display">Still Need Help?</h2>
+    <p>If you have a question about your delivery, our support team is ready to help.</p>
+    <div class="cta-row">
+      <a class="btn btn-lg btn-light" href="#">Contact Support →</a>
+      <a class="btn btn-lg btn-outline" href="https://wa.me/234XXXXXXXXXX" target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="wrap foot-inner">
+      <strong>[BRAND]</strong>
+      <span>© [YEAR] [BRAND]. All rights reserved.</span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  /* Sample orders for the preview. Replace with a real order lookup. */
+  var ORDERS = {
+    '10482': { stage: 3, est: 'October 10, 2026', dates: ['Oct 2, 2026', 'Oct 3, 2026', 'Oct 4, 2026', 'Oct 6, 2026', ''] },
+    '10391': { stage: 4, est: 'October 4, 2026', delivered: true, dates: ['Sep 30, 2026', 'Oct 1, 2026', 'Oct 2, 2026', 'Oct 4, 2026', 'Oct 4, 2026'] },
+    '10517': { stage: 1, est: 'October 12, 2026', dates: ['Oct 6, 2026', 'Oct 6, 2026', '', '', ''] }
+  };
+  var STEPS = [
+    { t: 'Order Confirmed', d: 'Your order has been received.' },
+    { t: 'Processing', d: 'Your order is being prepared.' },
+    { t: 'Shipped', d: 'Your package has left our facility.' },
+    { t: 'Out for Delivery', d: 'Your package is on its way to you.' },
+    { t: 'Delivered', d: 'Your order has arrived.' }
+  ];
+  var ICON = {
+    done: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.500l4.500 4.500L19 7.500"/></svg>',
+    now: '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="currentColor"/></svg>',
+    todo: '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="2"/></svg>'
+  };
+
+  var form = document.getElementById('t-form');
+  var input = document.getElementById('order-no');
+  var btn = document.getElementById('t-btn');
+  var err = document.getElementById('t-err');
+  var result = document.getElementById('result');
+  var timer = null;
+
+  function showError(html) { err.innerHTML = html; err.classList.add('show'); }
+  function clearError() { err.classList.remove('show'); err.innerHTML = ''; }
+
+  function render(num, o, isSample) {
+    var delivered = !!o.delivered;
+    var lis = STEPS.map(function (s, i) {
+      var state = (delivered || i < o.stage) ? 'done' : (i === o.stage ? 'now' : 'todo');
+      var label = state === 'done' ? (delivered && i === 4 ? 'Delivered' : 'Completed') : (state === 'now' ? 'Current stage' : 'Pending');
+      var date = o.dates[i] ? '<span class="dt">' + o.dates[i] + '</span>' : '';
+      return '<li class="' + state + '"' + (state === 'now' ? ' aria-current="step"' : '') + '>' +
+        '<span class="mk">' + ICON[state] + '</span>' +
+        '<div class="txt"><h3>' + s.t + '</h3><span class="st">' + label + '</span><p>' + s.d + '</p>' + date + '</div></li>';
+    }).join('');
+    var status = delivered ? 'Delivered' : STEPS[o.stage].t;
+    var badgeCls = delivered ? 'badge ok' : 'badge';
+    result.innerHTML =
+      (isSample ? '<span class="sample-tag">Sample order shown</span>' : '') +
+      '<div class="r-head"><dl>' +
+        '<div><dt>Order</dt><dd>#BRD-' + num + '</dd></div>' +
+        '<div><dt>' + (delivered ? 'Delivered on' : 'Estimated Delivery') + '</dt><dd>' + o.est + '</dd></div>' +
+      '</dl><span class="' + badgeCls + '"><i></i>' + status + '</span></div>' +
+      '<ol class="tl" aria-label="Order progress">' + lis + '</ol>';
+    result.style.animation = 'none';
+    void result.offsetWidth;
+    result.style.animation = '';
+  }
+
+  function track(raw, isSample) {
+    clearError();
+    var v = (raw || '').toUpperCase().replace(/\s+/g, '');
+    if (!v) { showError('Enter your order number to track it.'); input.focus(); return; }
+    var m = v.match(/^#?(?:BRD-?)?(\d{4,6})$/);
+    if (!m) { showError('That doesn’t look like an order number. It should look like #BRD-10482.'); input.focus(); return; }
+    var num = m[1];
+    btn.disabled = true;
+    var old = btn.textContent;
+    btn.textContent = 'Tracking…';
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      btn.disabled = false;
+      btn.textContent = old;
+      var o = ORDERS[num];
+      if (!o) {
+        result.innerHTML = '';
+        showError('We can’t find order #BRD-' + num + '. Check the number in your confirmation email or SMS, or <a href="#">contact support</a>.');
+        return;
+      }
+      render(num, o, !!isSample);
+      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, isSample ? 150 : 650);
+  }
+
+  form.addEventListener('submit', function (e) { e.preventDefault(); track(input.value, false); });
+  document.querySelectorAll('[data-sample]').forEach(function (c) {
+    c.addEventListener('click', function () {
+      input.value = c.getAttribute('data-sample');
+      track(input.value, true);
+    });
+  });
+
+  /* Opens with a sample order so the tracking view is visible straight away. */
+  render('10482', ORDERS['10482'], true);
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(function (q) {
+    q.addEventListener('click', function () {
+      var item = q.closest('.faq-item');
+      var open = !item.classList.contains('open');
+      item.classList.toggle('open', open);
+      q.setAttribute('aria-expanded', String(open));
+    });
+  });
+})();
+</script>
+
+</body></html>

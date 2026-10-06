@@ -1,0 +1,427 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>FAQ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: dark hero holding the search; a sticky, horizontally scrollable category bar; a centred reading column of grouped accordion cards; a dark support band; light quick-help cards. Same identity as the About, Shop, Product, Cart, Contact and Delivery pages. */
+:root{
+  --display:'Archivo','Arial Black',Impact,sans-serif;
+  --text:'Manrope','Helvetica Neue',Arial,sans-serif;
+  --bg:#F4F2EE; --fg:#111111; --muted:#6B6761; --body:#4F4B44; --line:#E4E0D9;
+  --card:#FFFFFF; --bone:#E6E1D6; --field-line:#D4D0C8; --mark:#FFE9A8;
+  --band:#111111; --band-line:#4A463F; --hero:#2A2824;
+  --on-band:#F4F2EE; --on-band-muted:#C9C4BA;
+  --btn-ink:#111111; --btn-ink-fg:#FFFFFF;
+  --shadow:0 1px 2px rgba(17,17,17,.04),0 8px 30px rgba(17,17,17,.06);
+  --shadow-lift:0 22px 44px rgba(17,17,17,.16);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#181715; --fg:#F4F2EE; --muted:#A8A398; --body:#C9C4BA; --line:#2E2B26;
+    --card:#22201D; --bone:#2E2B26; --field-line:#3F3B35; --mark:#5A4B1E;
+    --band:#0D0D0C; --band-line:#3A3732; --hero:#1F1D1A;
+    --btn-ink:#F4F2EE; --btn-ink-fg:#111111;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 30px rgba(0,0,0,.35);
+    --shadow-lift:0 22px 44px rgba(0,0,0,.55);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#181715; --fg:#F4F2EE; --muted:#A8A398; --body:#C9C4BA; --line:#2E2B26;
+  --card:#22201D; --bone:#2E2B26; --field-line:#3F3B35; --mark:#5A4B1E;
+  --band:#0D0D0C; --band-line:#3A3732; --hero:#1F1D1A;
+  --btn-ink:#F4F2EE; --btn-ink-fg:#111111;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 30px rgba(0,0,0,.35);
+  --shadow-lift:0 22px 44px rgba(0,0,0,.55);
+  color-scheme:dark;
+}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--text);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button,input{font-family:inherit}
+button{cursor:pointer}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.display{font-family:var(--display);font-weight:900;text-transform:uppercase}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;min-height:84px}
+.nav-left{display:flex;align-items:center;gap:clamp(16px,3vw,40px);flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:900;font-size:22px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+.nav nav{display:flex;gap:clamp(14px,2.5vw,28px);flex-wrap:wrap;font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.nav a{text-decoration:none;transition:opacity .15s ease}
+.nav a:hover{opacity:.65}
+.nav .current{border-bottom:2px solid #fff;padding-bottom:2px}
+.bag{display:flex;align-items:center;gap:10px;min-height:44px;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+
+/* hero */
+.hero{background:var(--hero);color:#fff}
+.hero-body{display:flex;flex-direction:column;gap:clamp(16px,2.4vw,28px);padding-block:clamp(40px,6vw,88px) clamp(40px,6vw,80px)}
+.hero h1{max-width:980px;font-size:clamp(40px,7.5vw,112px);line-height:.94;letter-spacing:-.03em}
+.hero p.sub{max-width:560px;font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:#E4E0D9}
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.r2{animation-delay:.15s}.r3{animation-delay:.3s}
+@keyframes rise{from{opacity:.25;transform:translateY(18px)}to{opacity:1;transform:none}}
+.search{position:relative;max-width:760px;margin-top:8px}
+.search label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.search input{width:100%;height:72px;padding:0 64px 0 62px;border:0;border-radius:18px;background:#F4F2EE;color:#111;font-size:18px;font-weight:600;transition:box-shadow .2s ease}
+.search input::placeholder{color:#6B6761;font-weight:500}
+.search input:focus{outline:none;box-shadow:0 0 0 4px rgba(255,255,255,.35)}
+.search input::-webkit-search-cancel-button{display:none}
+.search .ico{position:absolute;left:22px;top:50%;transform:translateY(-50%);color:#4F4B44;pointer-events:none}
+.search .clear{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:48px;height:48px;border:0;border-radius:50%;background:transparent;color:#111;display:grid;place-items:center;transition:background .15s ease}
+.search .clear:hover{background:#E4E0D9}
+.search .clear[hidden]{display:none}
+.pop{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px;color:#B9B4A9}
+.pop button{min-height:40px;padding:0 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:transparent;color:#fff;font-size:13px;font-weight:600;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.pop button:hover{background:#F4F2EE;color:#111;border-color:#F4F2EE}
+
+/* category bar */
+.cats-bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.cats{display:flex;gap:8px;overflow-x:auto;padding-block:14px;scrollbar-width:none;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.cats::-webkit-scrollbar{display:none}
+.cat{flex:0 0 auto;scroll-snap-align:start;display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border:1px solid var(--field-line);border-radius:999px;background:transparent;color:var(--fg);font-size:14px;font-weight:700;letter-spacing:.02em;white-space:nowrap;transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}
+.cat:hover{border-color:var(--fg)}
+.cat .n{font-size:12px;font-weight:700;color:var(--muted);transition:color .2s ease}
+.cat[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.cat[aria-pressed="true"] .n{color:inherit;opacity:.7}
+.cat.empty{opacity:.45}
+@media (max-width:900px){
+  .cats{padding-right:32px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}
+}
+
+/* list */
+.list-wrap{max-width:920px;margin:0 auto;padding-block:clamp(32px,5vw,64px) clamp(56px,8vw,112px)}
+.status{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;margin-bottom:clamp(20px,3vw,32px);font-size:14px;font-weight:600;color:var(--muted)}
+.status button{min-height:44px;padding:0 4px;border:0;background:transparent;color:var(--fg);font-size:14px;font-weight:700;text-decoration:underline}
+.group{margin-bottom:clamp(32px,5vw,56px)}
+.group>h2{font-family:var(--display);font-weight:900;font-size:clamp(26px,3.2vw,38px);letter-spacing:-.015em;text-transform:uppercase;margin-bottom:16px}
+.faq-card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);margin-bottom:12px;transition:border-color .2s ease,box-shadow .25s ease}
+.faq-card:hover{border-color:var(--field-line)}
+.faq-card.open{border-color:var(--fg);box-shadow:var(--shadow-lift)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;min-height:76px;padding:18px clamp(18px,3vw,28px);border:0;border-radius:18px;background:transparent;color:var(--fg);text-align:left;font-family:var(--display);font-weight:800;font-size:clamp(17px,2vw,20px);line-height:1.3}
+.pm{flex:0 0 40px;width:40px;height:40px;border-radius:50%;border:1px solid var(--field-line);display:grid;place-items:center;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.faq-q:hover .pm,.faq-card.open .pm{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.pm .v{transform-origin:center;transform-box:fill-box;transition:transform .3s ease}
+.faq-card.open .pm .v{transform:scaleY(0)}
+.panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.faq-card.open .panel{grid-template-rows:1fr}
+.panel-in{overflow:hidden;visibility:hidden;transition:visibility .35s}
+.faq-card.open .panel-in{visibility:visible}
+.panel-in p{padding:0 clamp(18px,3vw,28px) 26px;max-width:720px;font-size:16px;line-height:1.75;color:var(--body)}
+.panel-in a{font-weight:700}
+mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 2px}
+.none{background:var(--card);border:1px dashed var(--field-line);border-radius:20px;padding:clamp(32px,6vw,64px) 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
+.none h2{font-family:var(--display);font-weight:800;font-size:clamp(22px,3vw,30px);line-height:1.2}
+.none p{max-width:420px;color:var(--body);line-height:1.6}
+.none .row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:6px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:800;text-transform:uppercase;border:1px solid transparent;border-radius:14px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease,border-color .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-lg{min-height:60px;padding:0 36px;font-size:14px;letter-spacing:.12em}
+.btn-sm{min-height:46px;padding:0 22px;font-size:12px;letter-spacing:.1em;border-radius:12px}
+.btn-ink{background:var(--btn-ink);color:var(--btn-ink-fg)}
+.btn-ink:hover{box-shadow:0 14px 28px rgba(17,17,17,.25)}
+.btn-light{background:#F4F2EE;color:#111}
+.btn-light:hover{box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.btn-outline{border-color:#6B6761;color:#fff;background:transparent}
+.btn-outline:hover{background:#F4F2EE;color:#111;border-color:#F4F2EE}
+.btn-ghost{border-color:var(--fg);color:var(--fg);background:transparent}
+.btn-ghost:hover{background:var(--fg);color:var(--bg)}
+
+/* support band */
+.support{background:var(--band);color:var(--on-band)}
+.support-inner{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(20px,3vw,32px);padding-block:clamp(64px,10vw,130px)}
+.support h2{max-width:900px;font-size:clamp(40px,7vw,104px);line-height:.92;letter-spacing:-.03em}
+.support p{max-width:520px;font-size:18px;line-height:1.6;color:var(--on-band-muted)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+
+/* quick help */
+.quick{padding-block:clamp(56px,8vw,112px)}
+.quick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:clamp(12px,2vw,24px)}
+.qcard{background:var(--card);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:20px;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
+.qcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift)}
+.qcard .ic{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center}
+.qcard h3{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.005em;text-transform:uppercase;margin-bottom:8px}
+.qcard p{font-size:15px;line-height:1.6;color:var(--body)}
+.qcard .btn{align-self:flex-start;margin-top:auto}
+.foot{background:var(--band);color:var(--on-band);border-top:1px solid var(--band-line)}
+.foot-inner{padding-block:24px;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;font-size:13px;color:#B5B0A7}
+.foot-inner strong{font-family:var(--display);font-weight:900;letter-spacing:.04em;color:var(--on-band)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rise{animation:none}
+  .btn,.qcard,.panel,.pm .v,.cat,.faq-card{transition:none}
+}
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <header class="wrap">
+    <div class="nav">
+      <div class="nav-left">
+        <a class="brand" href="#">[BRAND]</a>
+        <nav aria-label="Main">
+          <a href="#">Shop</a>
+          <a href="#">New In</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#" class="current" aria-current="page">FAQ</a>
+        </nav>
+      </div>
+      <a class="bag" href="#">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span>Bag</span>
+      </a>
+    </div>
+  </header>
+  <div class="wrap hero-body">
+    <h1 class="display rise">Frequently Asked Questions</h1>
+    <p class="sub rise r2">Everything you need to know about our products, orders and shopping experience.</p>
+    <form class="search rise r3" id="search-form" role="search" novalidate>
+      <label for="q">Search for a question</label>
+      <svg class="ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search for a question…" aria-controls="faq-list">
+      <button type="button" class="clear" id="clear" aria-label="Clear search" hidden>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </form>
+    <div class="pop rise r3"><span>Popular:</span>
+      <button type="button" data-q="delivery">Delivery</button>
+      <button type="button" data-q="size">Sizing</button>
+      <button type="button" data-q="return">Returns</button>
+      <button type="button" data-q="payment">Payment</button>
+      <button type="button" data-q="track">Track order</button>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<div class="cats-bar">
+  <div class="wrap">
+    <div class="cats" id="cats" role="group" aria-label="Question categories"></div>
+  </div>
+</div>
+
+<!-- LIST -->
+<main class="wrap">
+  <div class="list-wrap">
+    <div class="status"><span id="count" aria-live="polite"></span><button type="button" id="reset" hidden>Reset filters</button></div>
+    <div id="faq-list"></div>
+  </div>
+</main>
+
+<!-- SUPPORT -->
+<section class="support">
+  <div class="wrap support-inner">
+    <h2 class="display">Still Have Questions?</h2>
+    <p>Can’t find what you’re looking for? Our support team is happy to help.</p>
+    <div class="cta-row">
+      <a class="btn btn-lg btn-light" href="#">Contact Us →</a>
+      <a class="btn btn-lg btn-outline" href="https://wa.me/234XXXXXXXXXX" target="_blank" rel="noopener">WhatsApp Support</a>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK HELP -->
+<section class="wrap quick">
+  <div class="quick-grid">
+    <article class="qcard">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></div>
+      <div><h3>Track My Order</h3><p>Check the latest status of your order.</p></div>
+      <a class="btn btn-sm btn-ghost" href="#">Track Order</a>
+    </article>
+    <article class="qcard">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v10H2z"/><path d="M13 9h4l3 3v4h-7V9z"/><circle cx="6.500" cy="17.500" r="1.800"/><circle cx="16.500" cy="17.500" r="1.800"/></svg></div>
+      <div><h3>Delivery Information</h3><p>Learn about delivery times and locations.</p></div>
+      <a class="btn btn-sm btn-ghost" href="#">Learn More</a>
+    </article>
+    <article class="qcard">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.300L20 9"/><path d="M20 4v5h-5"/><path d="M20 12a8 8 0 0 1-14 5.300L4 15"/><path d="M4 20v-5h5"/></svg></div>
+      <div><h3>Returns &amp; Exchanges</h3><p>Find out how our returns process works.</p></div>
+      <a class="btn btn-sm btn-ghost" href="#">View Policy</a>
+    </article>
+  </div>
+</section>
+
+<div class="foot">
+  <div class="wrap foot-inner">
+    <strong>[BRAND]</strong>
+    <span>© [YEAR] [BRAND]. All rights reserved.</span>
+  </div>
+</div>
+
+<script>
+(function () {
+  var CATS = [
+    { id: 'all', name: 'All' },
+    { id: 'orders', name: 'Orders' },
+    { id: 'delivery', name: 'Delivery' },
+    { id: 'products', name: 'Products & Sizes' },
+    { id: 'payments', name: 'Payments' },
+    { id: 'returns', name: 'Returns & Exchanges' },
+    { id: 'store', name: 'Store' },
+    { id: 'general', name: 'General' }
+  ];
+
+  /* Answers may contain simple links. Bracketed text is a placeholder to replace. */
+  var FAQS = [
+    { c: 'orders', q: 'How do I place an order?', a: 'Choose your items, pick a size and colour, and add them to your cart. Review your cart, continue to checkout, enter your delivery details and pay. You’ll receive a confirmation email or SMS with your order number.' },
+    { c: 'orders', q: 'Can I change or cancel my order after placing it?', a: 'Contact support with your order number as soon as you can. We can usually change or cancel an order while it’s still being prepared. Once it has shipped it can’t be changed, but you can return it after delivery.' },
+    { c: 'orders', q: 'How can I check my order status?', a: 'Enter your order number on the <a href="#">Track Order</a> page to see each stage, from confirmed to delivered.' },
+    { c: 'orders', q: 'Where can I find my order number?', a: 'It’s in your confirmation email or SMS and looks like #BRD-10482.' },
+
+    { c: 'delivery', q: 'How long does delivery take?', a: 'Standard delivery takes 2–5 business days and express delivery takes 1–2 business days. Times can vary depending on your location, and you’ll see your estimate at checkout.' },
+    { c: 'delivery', q: 'Do you offer same-day delivery?', a: 'Same or next-day delivery is available in Lagos, depending on your location and when you order. Available options appear at checkout.' },
+    { c: 'delivery', q: 'Do you deliver outside Nigeria?', a: 'Yes, to selected countries: [list countries]. If yours isn’t shown at checkout, contact support and we’ll tell you what’s possible.' },
+    { c: 'delivery', q: 'How much does delivery cost?', a: 'The fee depends on your location and the delivery option you choose. You’ll see the exact amount at checkout before you pay. [Add any free-delivery threshold here.]' },
+    { c: 'delivery', q: 'Can I change my delivery address?', a: 'Contact support with your order number as soon as you can. We can update the address while your order is still being prepared. Once it has shipped, a change depends on the delivery partner.' },
+
+    { c: 'products', q: 'How do I choose the right size?', a: 'Every product page has a size chart with measurements. Measure a piece you already own that fits well and compare it to the chart. Many of our pieces have a relaxed cut, so check the fit notes on the product page too.' },
+    { c: 'products', q: 'Where can I find the size guide?', a: 'On each product page, next to the size selector. [Link to your full size guide page here.]' },
+    { c: 'products', q: 'What materials are your clothes made from?', a: 'Our pieces use premium cotton and quality fabric blends, chosen for comfort and durability. The exact fabric and care instructions for each item are listed on its product page.' },
+    { c: 'products', q: 'Will an item come back in stock if it sells out?', a: 'Some pieces are restocked and others are limited. If something sells out, follow us on social media to hear about restocks and new drops. [Add a back-in-stock notification option if you offer one.]' },
+
+    { c: 'payments', q: 'What payment methods do you accept?', a: '[List accepted methods, for example cards, bank transfer and USSD.] The options available to you appear at checkout.' },
+    { c: 'payments', q: 'Is online payment secure?', a: 'Payments are processed through [payment provider] over an encrypted connection. Your payment details are entered on their secure page.' },
+    { c: 'payments', q: 'What should I do if my payment fails?', a: 'Check your card details and balance, then try again or use a different payment method. If money left your account but you didn’t get a confirmation email, contact support with your payment reference.' },
+
+    { c: 'returns', q: 'What is your return policy?', a: 'Unworn items with their tags attached can be returned within [X] days of delivery. Refunds go back to your original payment method. [Link to your full policy here.]' },
+    { c: 'returns', q: 'Can I exchange an item for another size?', a: 'Yes, subject to availability. Contact us with your order number and the size you’d like, and we’ll arrange the exchange.' },
+    { c: 'returns', q: 'How long do I have to return an item?', a: 'You have [X] days from the date your order is delivered.' },
+    { c: 'returns', q: 'What happens if I receive a damaged or incorrect item?', a: 'Contact us within [X] days of delivery with your order number and a photo. We’ll send a replacement or refund you, at no cost to you.' },
+
+    { c: 'store', q: 'Where is your physical store located?', a: 'Our flagship store is at [Store Address], Lagos, Nigeria. You can get directions on the <a href="#">Contact page</a>.' },
+    { c: 'store', q: 'What are your opening hours?', a: 'Monday to Saturday, 9:00 AM – 7:00 PM. Sunday, 12:00 PM – 6:00 PM.' },
+    { c: 'store', q: 'Can I order online and pick up from the store?', a: 'Yes. Choose store pickup at checkout, wait for the ready-for-pickup email, then bring your order number and a valid ID to the store during opening hours.' },
+
+    { c: 'general', q: 'What is [Brand] about?', a: 'We make everyday clothing for people who want to look good, feel comfortable and express who they are. Read more on our <a href="#">About page</a>.' },
+    { c: 'general', q: 'How can I contact customer support?', a: 'Use the contact form, email hello@brandname.com, or reach us by phone or WhatsApp. Our team is available Monday to Saturday, 9:00 AM – 6:00 PM.' },
+    { c: 'general', q: 'Where can I see new drops and updates?', a: 'Follow us on Instagram, TikTok, X and Facebook, or visit the New In page for the latest arrivals.' }
+  ];
+  FAQS.forEach(function (f, i) { f.id = 'f' + i; f.hay = (f.q + ' ' + f.a.replace(/<[^>]+>/g, ' ')).toLowerCase(); });
+
+  var state = { cat: 'all', q: '' };
+  var open = {};
+  var elCats = document.getElementById('cats');
+  var elList = document.getElementById('faq-list');
+  var elCount = document.getElementById('count');
+  var elReset = document.getElementById('reset');
+  var input = document.getElementById('q');
+  var clear = document.getElementById('clear');
+
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function tokens() { return state.q.toLowerCase().split(/\s+/).filter(Boolean); }
+  function matchesSearch(f) { var t = tokens(); return t.every(function (w) { return f.hay.indexOf(w) !== -1; }); }
+  function highlight(text) {
+    var out = esc(text);
+    tokens().filter(function (w) { return w.length > 1; }).forEach(function (w) {
+      var re = new RegExp('(' + esc(w).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
+      out = out.replace(re, '<mark>$1</mark>');
+    });
+    return out;
+  }
+
+  var PM = '<span class="pm" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 8h12"/><path class="v" d="M8 2v12"/></svg></span>';
+
+  function renderCats() {
+    var base = FAQS.filter(matchesSearch);
+    elCats.innerHTML = CATS.map(function (c) {
+      var n = c.id === 'all' ? base.length : base.filter(function (f) { return f.c === c.id; }).length;
+      var cls = 'cat' + (n === 0 ? ' empty' : '');
+      return '<button type="button" class="' + cls + '" data-cat="' + c.id + '" aria-pressed="' + (state.cat === c.id) + '">' + esc(c.name) + ' <span class="n">' + n + '</span></button>';
+    }).join('');
+  }
+
+  function renderList() {
+    var items = FAQS.filter(function (f) { return (state.cat === 'all' || f.c === state.cat) && matchesSearch(f); });
+    var searching = state.q.trim().length > 0;
+    elCount.textContent = searching
+      ? items.length + (items.length === 1 ? ' result' : ' results') + ' for “' + state.q.trim() + '”'
+      : items.length + (items.length === 1 ? ' question' : ' questions');
+    elReset.hidden = !(searching || state.cat !== 'all');
+
+    if (!items.length) {
+      elList.innerHTML = '<div class="none"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M8.500 11h5"/></svg>' +
+        '<h2>No questions match' + (searching ? ' “' + esc(state.q.trim()) + '”' : '') + '.</h2>' +
+        '<p>Try a different keyword, switch category, or ask our team directly.</p>' +
+        '<div class="row"><button type="button" class="btn btn-sm btn-ghost" data-action="reset">Clear search</button><a class="btn btn-sm btn-ink" href="#">Contact us</a></div></div>';
+      return;
+    }
+    var html = '';
+    CATS.slice(1).forEach(function (cat) {
+      var group = items.filter(function (f) { return f.c === cat.id; });
+      if (!group.length) return;
+      html += '<section class="group" aria-labelledby="g-' + cat.id + '"><h2 id="g-' + cat.id + '">' + esc(cat.name) + '</h2>';
+      group.forEach(function (f) {
+        var isOpen = !!open[f.id];
+        html += '<div class="faq-card' + (isOpen ? ' open' : '') + '" data-id="' + f.id + '">' +
+          '<button type="button" class="faq-q" id="q-' + f.id + '" aria-expanded="' + isOpen + '" aria-controls="p-' + f.id + '"><span>' + highlight(f.q) + '</span>' + PM + '</button>' +
+          '<div class="panel" id="p-' + f.id + '" role="region" aria-labelledby="q-' + f.id + '"><div class="panel-in"><p>' + f.a + '</p></div></div></div>';
+      });
+      html += '</section>';
+    });
+    elList.innerHTML = html;
+  }
+
+  function render() {
+    renderCats();
+    renderList();
+    clear.hidden = !state.q;
+  }
+
+  function setCat(id) {
+    state.cat = id;
+    render();
+    var btn = elCats.querySelector('[data-cat="' + id + '"]');
+    if (btn && btn.scrollIntoView) btn.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+  }
+
+  /* Events */
+  elCats.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-cat]');
+    if (b) setCat(b.getAttribute('data-cat'));
+  });
+  elList.addEventListener('click', function (e) {
+    var q = e.target.closest('.faq-q');
+    if (q) {
+      var card = q.closest('.faq-card');
+      var id = card.getAttribute('data-id');
+      var now = !card.classList.contains('open');
+      open[id] = now;
+      card.classList.toggle('open', now);
+      q.setAttribute('aria-expanded', String(now));
+      return;
+    }
+    if (e.target.closest('[data-action="reset"]')) resetAll();
+  });
+  function resetAll() {
+    state.q = ''; state.cat = 'all'; input.value = '';
+    render();
+  }
+  input.addEventListener('input', function () { state.q = input.value; render(); });
+  input.addEventListener('keydown', function (e) { if (e.key === 'Escape' && input.value) { state.q = ''; input.value = ''; render(); } });
+  document.getElementById('search-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var list = document.getElementById('faq-list');
+    if (list.scrollIntoView) list.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  clear.addEventListener('click', function () { state.q = ''; input.value = ''; render(); input.focus(); });
+  elReset.addEventListener('click', resetAll);
+  document.querySelectorAll('[data-q]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      state.q = b.getAttribute('data-q'); input.value = state.q; state.cat = 'all'; render();
+      document.getElementById('faq-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  render();
+})();
+</script>
+
+</body></html>
